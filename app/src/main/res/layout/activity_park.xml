@@ -57,7 +57,7 @@
         android:id="@+id/txtdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="19dp"
         android:text="TextView"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,13 +100,13 @@
         android:id="@+id/etxtMob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
         android:ems="10"
         android:hint="Mobile No"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/btnRest"
         app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
 

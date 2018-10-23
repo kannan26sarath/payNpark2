@@ -24,7 +24,8 @@
         android:layout_alignParentTop="true"
         android:background="@android:drawable/btn_dialog"
         android:text="SEARCH"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentRight="true" />
 
     <Button
         android:id="@+id/locate"
@@ -33,7 +34,8 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:background="@android:color/holo_red_dark"
-        android:text="LOCATE" />
+        android:text="LOCATE"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/billing"
@@ -44,7 +46,8 @@
         android:background="@android:color/holo_green_dark"
 
         android:text="BILLING"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentRight="true" />
 
     <Button
         android:id="@+id/admin"
@@ -53,7 +56,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="@color/colorAccent"
-        android:text="ADMIN" />
+        android:text="ADMIN"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/about"
@@ -63,5 +67,6 @@
         android:layout_alignParentEnd="true"
         android:background="#ffffff"
         android:text="ABOUT"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentRight="true" />
 </RelativeLayout>

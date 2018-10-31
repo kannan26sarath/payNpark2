@@ -2,6 +2,7 @@ package com.example.kanna.paynpark;
 
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,8 +28,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class ParkActivity extends AppCompatActivity {
+import static android.net.sip.SipErrorCode.TIME_OUT;
 
+public class ParkActivity extends AppCompatActivity {
+    private static int TIME_OUTs = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +46,18 @@ public class ParkActivity extends AppCompatActivity {
         String formattedDate = null;
         etxtVid=findViewById(R.id.etxtVid);
         etxtMobileNum=findViewById(R.id.etxtMob);
+        TextView txtSloteno=findViewById(R.id.sloteno);
 
 
         final Spinner dropdown = findViewById(R.id.spinner1);
         String[] items = new String[]{"2 wheeler", "4 wheeler"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
+
+
+        Bundle extras = getIntent().getExtras();
+        final String SloteNO=extras.getString("SLOTE_NO");
+        txtSloteno.setText(SloteNO);
 
 
         final Date c = Calendar.getInstance().getTime();
@@ -79,6 +88,7 @@ public class ParkActivity extends AppCompatActivity {
                 String mob= String.valueOf(etxtMobileNum.getText());
                 String vid= String.valueOf(etxtVid.getText());
                 String catgry = dropdown.getSelectedItem().toString();
+                String Sloteno=SloteNO;
 
 
 
@@ -92,6 +102,7 @@ public class ParkActivity extends AppCompatActivity {
                     urlBuilder.addQueryParameter("park_vehno",vid);
                     urlBuilder.addQueryParameter("park_catgry",catgry);
                     urlBuilder.addQueryParameter("park_mob",mob);
+                    urlBuilder.addQueryParameter("slote_id",Sloteno);
 
                     String url = urlBuilder.build().toString();
 
@@ -133,6 +144,17 @@ public class ParkActivity extends AppCompatActivity {
                                             }
 
                                         });
+
+
+                                        new Handler().postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent i = new Intent(getApplicationContext(), HomePage.class);
+                                                startActivity(i);
+                                                finish();
+                                            }
+                                        }, TIME_OUTs);
+
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }

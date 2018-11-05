@@ -70,6 +70,8 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
 
         int count = 0;
 
+
+
         for (int index = 0; index < seats.length(); index++) {
             if (seats.charAt(index) == '/') {
                 layout = new LinearLayout(this);

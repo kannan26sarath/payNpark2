@@ -73,8 +73,12 @@ public class LoginActivity extends AppCompatActivity {
 
                                             JSONArray jsonArray = new JSONArray(data);
                                             JSONObject jsonObject;
+                                            for (int index = 0; index  < jsonArray.length(); index++) {
+                                                //JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                                // Do whatever you want with jsonObject.
+                                                 jsonObject = jsonArray.getJSONObject(index);
 
-                                            jsonObject = jsonArray.getJSONObject(0);
+
 
                                             String nme= jsonObject.getString("username");
                                             String psw=jsonObject.getString("password");
@@ -84,11 +88,13 @@ public class LoginActivity extends AppCompatActivity {
                                                 Intent i = new Intent(LoginActivity.this,HomePage.class);
                                                 startActivity(i);
                                                 finish();
+                                                break;
                                             }
                                             else{
+
                                                 Toast.makeText(getApplicationContext(),"invalid username or password",Toast.LENGTH_SHORT ).show();
                                             }
-
+                                        }
 
 
                                         } catch (JSONException e) {

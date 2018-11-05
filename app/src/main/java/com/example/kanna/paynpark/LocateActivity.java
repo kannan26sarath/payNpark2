@@ -26,6 +26,7 @@ import okhttp3.Response;
 public class LocateActivity extends AppCompatActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class LocateActivity extends AppCompatActivity {
 
             OkHttpClient client = new OkHttpClient();
 
-            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://172.16.80.10/17lemca049/database/locateall.php").newBuilder();
+            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/locateall.php").newBuilder();
             //urlBuilder.addQueryParameter("PID", txtPID.getText().toString());
 
             String url = urlBuilder.build().toString();
@@ -68,17 +69,18 @@ public class LocateActivity extends AppCompatActivity {
                             try {
                                 //txtInfo.setText(response.body().string());
                                 String[]arr;
+
                                 try {
                                     String data = response.body().string();
-
                                     JSONArray jsonArray = new JSONArray(data);
+
                                     JSONObject jsonObject;
-                                     arr=new String[jsonArray.length()];
+                                    /* arr=new String[jsonArray.length()];
                                     for(int i=0; i<arr.length; i++) {
                                         arr[i]=jsonArray.optString(i);
-                                    }
+                                    }*/
 
-                                    LocaterAdapter reAdapter=new LocaterAdapter(arr);
+                                    LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
                                     recyclerView.setAdapter(reAdapter);
 
 

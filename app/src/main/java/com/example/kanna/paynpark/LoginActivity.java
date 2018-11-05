@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     OkHttpClient client = new OkHttpClient();
 
-                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://172.16.80.10/17lemca049/database/login.php").newBuilder();
+                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/login.php").newBuilder();
                     //urlBuilder.addQueryParameter("PID", txtPID.getText().toString());
 
                     String url = urlBuilder.build().toString();

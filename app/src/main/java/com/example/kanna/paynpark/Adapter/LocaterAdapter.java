@@ -9,12 +9,16 @@ import android.widget.TextView;
 
 import com.example.kanna.paynpark.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHolder> {
 
 
-   static String[] Locatedata;
+   static JSONArray Locatedata;
 
-    public LocaterAdapter(String[] Locatedata) {
+    public LocaterAdapter(JSONArray Locatedata) {
         this.Locatedata=Locatedata;
 
     }
@@ -31,13 +35,20 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.txtvno.setText(Locatedata[i]);
+        try {
+            //JSONObject jsonobject= Locatedata.getJSONArray(i);
+            JSONObject jsonobject = Locatedata.getJSONObject(i);
+            viewHolder.txtvno.setText(jsonobject.getString("park_vehno"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return Locatedata.length-1;
+        return Locatedata.length();
     }
 
 

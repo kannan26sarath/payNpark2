@@ -5,13 +5,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.kanna.paynpark.R;
 
 public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHolder> {
 
 
+   static String[] Locatedata;
+
     public LocaterAdapter(String[] Locatedata) {
+        this.Locatedata=Locatedata;
+
     }
 
     @NonNull
@@ -26,19 +31,25 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        viewHolder.txtvno.setText(Locatedata[i]);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return Locatedata.length-1;
     }
 
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView txtvno;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtvno=itemView.findViewById(R.id.txtvno);
+
+
         }
     }
 }

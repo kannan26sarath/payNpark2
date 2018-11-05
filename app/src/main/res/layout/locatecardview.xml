@@ -1,71 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txtsno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtpno"
+        app:layout_constraintEnd_toStartOf="@+id/txtpno"
+        app:layout_constraintStart_toStartOf="@+id/txtpno" />
+
     <TextView
         android:id="@+id/txtpno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintEnd_toStartOf="@+id/txtvno"
+        app:layout_constraintStart_toStartOf="@+id/txtvno"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/txtvno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintEnd_toStartOf="@+id/txtcategory"
+        app:layout_constraintStart_toStartOf="@+id/txtcategory" />
+
     <TextView
         android:id="@+id/txtcategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintEnd_toStartOf="@+id/txtdate"
+        app:layout_constraintStart_toStartOf="@+id/txtdate" />
+
     <TextView
         android:id="@+id/txtdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintEnd_toStartOf="@+id/txttime"
+        app:layout_constraintStart_toStartOf="@+id/txttime" />
+
     <TextView
         android:id="@+id/txttime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintEnd_toStartOf="@+id/txtslotno"
+        app:layout_constraintStart_toStartOf="@+id/txtslotno" />
+
     <TextView
         android:id="@+id/txtslotno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintEnd_toStartOf="@+id/txtphno"
+        app:layout_constraintStart_toStartOf="@+id/txtphno" />
+
     <TextView
         android:id="@+id/txtphno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
-
-
-
-
-
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtsno"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

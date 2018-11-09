@@ -12,7 +12,7 @@
         android:layout_height="192dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@android:drawable/ic_btn_speak_now"
+        android:drawableTop="@drawable/parking"
         android:text="PARK"
         android:visibility="visible" />
 
@@ -43,8 +43,6 @@
         android:layout_height="192dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:background="@android:color/holo_green_dark"
-
         android:text="BILLING"
         android:visibility="visible"
         android:layout_alignParentRight="true" />

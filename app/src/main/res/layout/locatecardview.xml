@@ -3,9 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:layout_editor_absoluteY="25dp">
-
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    android:layout_gravity="center">
     <TextView
         android:id="@+id/txtsno"
         android:layout_width="wrap_content"
@@ -83,5 +89,5 @@
         app:layout_constraintEnd_toStartOf="@+id/txtsno"
         app:layout_constraintStart_toStartOf="@+id/txtpno" />
 
-
+</android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

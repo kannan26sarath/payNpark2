@@ -243,18 +243,18 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
 
                 private void setSeat(JSONArray jsonArray) {
 
-int cnt=-1;
+
                        // try {
-                            for(int test =0; test<seatViewList.size(); test++){
-                                cnt++;
+                            for(int test=0; test<jsonArray.length(); test++){
+
                             Log.d("Arraylistcount",""+ seatViewList.get(test).getText());
                                 try {
                                     JSONObject jsonobject = jsonArray.getJSONObject(test);
-                                    if(String.valueOf(jsonobject.getString("slote_id")) == String.valueOf(seatViewList.get(test).getText()) ){
+                                    //if(String.valueOf(jsonobject.getString("slote_id")) == String.valueOf(seatViewList.get(test).getText()) ){
 
-                                        seatViewList.get(test).setBackgroundResource(R.drawable.red);
-                                        seatViewList.get(test).setTag(STATUS_BOOKED);
-                                    }
+                                        seatViewList.get(Integer.parseInt(jsonobject.getString("slote_id"))-1).setBackgroundResource(R.drawable.red);
+                                        seatViewList.get(Integer.parseInt(jsonobject.getString("slote_id"))-1).setTag(STATUS_BOOKED);
+                                    //}
                                 } catch (JSONException e) {
                                     Toast.makeText(getApplicationContext(),"fsdfs" + e,Toast.LENGTH_LONG).show();
                                 }

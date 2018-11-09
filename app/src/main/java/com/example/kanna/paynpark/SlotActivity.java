@@ -3,7 +3,9 @@ package com.example.kanna.paynpark;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -12,8 +14,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class SlotActivity extends AppCompatActivity implements View.OnClickListener {
     ViewGroup layout;
@@ -54,7 +68,9 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slot);
-
+        //JSONArray jsondatas = new JSONArray();
+        //GetSlotes getSlote=new GetSlotes(this);
+       // jsondatas= getSlote.getSlotes();
         layout = findViewById(R.id.layoutSeat);
 
         seats = "/" + seats;
@@ -138,6 +154,171 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
                 layout.addView(view);
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        try {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            OkHttpClient client = new OkHttpClient();
+
+            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/getslotes.php").newBuilder();
+            //urlBuilder.addQueryParameter("PID", txtPID.getText().toString());
+
+            String url = urlBuilder.build().toString();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException {
+
+                   runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try {
+                                //txtInfo.setText(response.body().string());
+                                String[] arr;
+                                JSONArray jsonArray;
+                                try {
+                                    String data = response.body().string();
+                                    jsonArray = new JSONArray(data);
+
+
+
+                                   // Log.d("MyseatsCountLocal",""+ myjson.length());
+                                    //JSONObject jsonObject;
+                                   /*  arr=new String[jsonArray.length()];
+                                    for(int i=0; i<arr.length; i++) {
+                                        arr[i]=jsonArray.optString(i);
+                                    }*/
+                                    setSeat(jsonArray);
+                                    //LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
+                                    //recyclerView.setAdapter(reAdapter);
+
+
+                                } catch (JSONException e) {
+                                    Toast.makeText(getApplicationContext(), "Error in Getting Data", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+                }
+
+                private void setSeat(JSONArray jsonArray) {
+
+int cnt=-1;
+                       // try {
+                            for(int test =0; test<seatViewList.size(); test++){
+                                cnt++;
+                            Log.d("Arraylistcount",""+ seatViewList.get(test).getText());
+                                try {
+                                    JSONObject jsonobject = jsonArray.getJSONObject(test);
+                                    if(String.valueOf(jsonobject.getString("slote_id")) == String.valueOf(seatViewList.get(test).getText()) ){
+
+                                        seatViewList.get(test).setBackgroundResource(R.drawable.red);
+                                        seatViewList.get(test).setTag(STATUS_BOOKED);
+                                    }
+                                } catch (JSONException e) {
+                                    Toast.makeText(getApplicationContext(),"fsdfs" + e,Toast.LENGTH_LONG).show();
+                                }
+                                // Log.d("Myseats",jsonobject.getString("slote_id"));
+
+
+
+
+                            }
+
+
+                        //} catch (JSONException e) {
+                        //    e.printStackTrace();
+                        //}
+
+
+
+                }
+
+                ;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override

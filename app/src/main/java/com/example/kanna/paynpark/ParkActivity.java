@@ -98,7 +98,7 @@ public class ParkActivity extends AppCompatActivity {
 
                     OkHttpClient client = new OkHttpClient();
 
-                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://172.16.80.10/17lemca049/database/create.php").newBuilder();
+                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/create.php").newBuilder();
                     urlBuilder.addQueryParameter("park_vehno",vid);
                     urlBuilder.addQueryParameter("park_catgry",catgry);
                     urlBuilder.addQueryParameter("park_mob",mob);

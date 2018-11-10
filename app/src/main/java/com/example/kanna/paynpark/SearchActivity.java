@@ -5,10 +5,14 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -61,6 +65,13 @@ public class SearchActivity extends AppCompatActivity {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
+
+        final RecyclerView recyclerView=findViewById(R.id.recyclerViewSearch);
+        recyclerView.setHasFixedSize(true);
+        final RecyclerView.LayoutManager reLayoutManager=new GridLayoutManager(this,1);
+        recyclerView.setLayoutManager(reLayoutManager);
+
 
     }
 

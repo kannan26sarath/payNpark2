@@ -12,8 +12,9 @@
         android:layout_height="192dp"
 
         android:layout_alignParentTop="true"
-        android:drawableTop="@drawable/parking"
+        android:drawableTop="@drawable/park"
         android:text="PARK"
+        android:background="#ffffff"
         android:visibility="visible" />
 
     <Button
@@ -22,7 +23,8 @@
         android:layout_height="192dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:background="@android:drawable/btn_dialog"
+        android:background="#ffffff"
+        android:drawableTop="@drawable/search"
         android:text="SEARCH"
         android:visibility="visible"
         android:layout_alignParentRight="true" />
@@ -33,8 +35,10 @@
         android:layout_height="192dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:background="@android:color/holo_red_dark"
+        android:drawableTop="@drawable/locate"
         android:text="LOCATE"
+
+        android:background="#ffffff"
         android:layout_alignParentLeft="true" />
 
     <Button
@@ -44,7 +48,9 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:text="BILLING"
+        android:drawableTop="@drawable/butt"
         android:visibility="visible"
+        android:background="#ffffff"
         android:layout_alignParentRight="true" />
 
     <Button
@@ -53,7 +59,8 @@
         android:layout_height="192dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@color/colorAccent"
+        android:drawableTop="@drawable/admin"
+        android:background="#ffffff"
         android:text="ADMIN"
         android:layout_alignParentLeft="true" />
 
@@ -64,6 +71,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:background="#ffffff"
+        android:drawableTop="@drawable/about"
         android:text="ABOUT"
         android:visibility="visible"
         android:layout_alignParentRight="true" />

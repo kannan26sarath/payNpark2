@@ -10,7 +10,7 @@
         android:id="@+id/park"
         android:layout_width="191dp"
         android:layout_height="192dp"
-        android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true"
         android:drawableTop="@drawable/parking"
         android:text="PARK"

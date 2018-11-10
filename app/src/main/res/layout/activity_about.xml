@@ -4,13 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutActivity">
+    android:background="@drawable/back"
+
+    tools:context=".AboutActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="218dp"
-        android:layout_height="43dp"
-        android:text="Developer"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="payNpark"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="178dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 2.18.341"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="212dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:text="© 2014-2019 BST Inc.\n    All rights reserved"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="341dp" />
 </android.support.constraint.ConstraintLayout>

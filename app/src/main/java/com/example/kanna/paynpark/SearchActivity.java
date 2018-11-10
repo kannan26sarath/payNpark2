@@ -110,6 +110,10 @@ public class SearchActivity extends AppCompatActivity {
                     setSearch();
                     
                 }
+                else {
+
+                    Toast.makeText(getApplicationContext(),"Please Select a date",Toast.LENGTH_SHORT).show();
+                }
             }
 
             private void setSearch() {
@@ -121,9 +125,9 @@ public class SearchActivity extends AppCompatActivity {
 
                         OkHttpClient client = new OkHttpClient();
 
-                        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/locateall.php").newBuilder();
+                        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/searchbydate.php").newBuilder();
                         //urlBuilder.addQueryParameter("PID", txtPID.getText().toString());
-
+                        urlBuilder.addQueryParameter("park_date", editTex.getText().toString());
                         String url = urlBuilder.build().toString();
 
                         Request request = new Request.Builder()
@@ -151,11 +155,10 @@ public class SearchActivity extends AppCompatActivity {
                                                 String data = response.body().string();
                                                 JSONArray jsonArray = new JSONArray(data);
 
-                                                JSONObject jsonObject;
-                                    /* arr=new String[jsonArray.length()];
-                                    for(int i=0; i<arr.length; i++) {
-                                        arr[i]=jsonArray.optString(i);
-                                    }*/
+                                                if (jsonArray.length()==0){
+                                                    Toast.makeText(getApplicationContext(),"No one is parked in this date",Toast.LENGTH_SHORT).show();
+
+                                                }
 
                                                 SearchAdapter searchAdapter=new SearchAdapter(jsonArray);
                                                 recyclerView.setAdapter(searchAdapter);

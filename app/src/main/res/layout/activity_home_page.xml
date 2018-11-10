@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
 
-    <Button
+    <ImageButton
         android:id="@+id/park"
         android:layout_width="191dp"
         android:layout_height="192dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:drawableTop="@drawable/parking"
+        android:src="@drawable/parking"
         android:text="PARK"
+        android:background="#ffffff"
         android:visibility="visible" />
 
     <Button
@@ -37,13 +37,15 @@
         android:text="LOCATE"
         android:layout_alignParentLeft="true" />
 
-    <Button
+    <ImageButton
         android:id="@+id/billing"
         android:layout_width="191dp"
         android:layout_height="192dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:text="BILLING"
+        android:background="#ffffff"
+        android:src="@drawable/imgcash"
         android:visibility="visible"
         android:layout_alignParentRight="true" />
 

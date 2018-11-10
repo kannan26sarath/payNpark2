@@ -329,13 +329,13 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
                 view.setBackgroundResource(R.drawable.green);
             } else {
                 selectedIds = selectedIds + view.getId() + ",";
-                view.setBackgroundResource(R.drawable.red);
-                String name="U";
-                String id= String.valueOf(view.getId());
-                int idd= Integer.parseInt(id)+1;
+                //view.setBackgroundResource(R.drawable.red);
+               // String name="U";
+                //String id= String.valueOf(view.getId());
+                //int idd= Integer.parseInt(id)+1;
                 //seats=seats.substring(0, view.getId())+name+seats.substring(idd);
                 //layout.addView(view);
-                view.setTag(STATUS_BOOKED);
+               // view.setTag(STATUS_BOOKED);
                 Intent intent=new Intent(getApplicationContext(),ParkActivity.class);
                intent.putExtra("SLOTE_NO",""+view.getId());
                startActivity(intent);

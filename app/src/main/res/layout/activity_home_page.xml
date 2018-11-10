@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,71 +8,107 @@
 
     <Button
         android:id="@+id/park"
-        android:layout_width="191dp"
-        android:layout_height="192dp"
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentTop="true"
-        android:drawableTop="@drawable/park"
-        android:text="PARK"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="177dp"
         android:background="#ffffff"
-        android:visibility="visible" />
+        android:drawableTop="@drawable/park"
+        android:paddingTop="5dp"
+        android:text="PARK"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/admin"
+        app:layout_constraintEnd_toStartOf="@+id/search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/search"
-        android:layout_width="191dp"
-        android:layout_height="192dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="177dp"
         android:background="#ffffff"
         android:drawableTop="@drawable/search"
+        android:paddingTop="5dp"
         android:text="SEARCH"
         android:visibility="visible"
-        android:layout_alignParentRight="true" />
+        app:layout_constraintBottom_toTopOf="@+id/about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/park"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/locate"
-        android:layout_width="191dp"
+        android:layout_width="0dp"
         android:layout_height="192dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
+        android:background="#ffffff"
+
         android:drawableTop="@drawable/locate"
         android:text="LOCATE"
-
-        android:background="#ffffff"
-        android:layout_alignParentLeft="true" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/billing"
+        app:layout_constraintEnd_toStartOf="@+id/about"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/billing"
-        android:layout_width="191dp"
+        android:layout_width="0dp"
         android:layout_height="192dp"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:text="BILLING"
-        android:drawableTop="@drawable/butt"
-        android:visibility="visible"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="177dp"
         android:background="#ffffff"
-        android:layout_alignParentRight="true" />
+        android:drawableTop="@drawable/butt"
+        android:text="BILLING"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/admin"
+        app:layout_constraintTop_toTopOf="@+id/park" />
 
     <Button
         android:id="@+id/admin"
-        android:layout_width="191dp"
-        android:layout_height="192dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
-        android:drawableTop="@drawable/admin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:background="#ffffff"
+        android:drawableTop="@drawable/admin"
         android:text="ADMIN"
-        android:layout_alignParentLeft="true" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/billing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/park" />
 
     <Button
         android:id="@+id/about"
-        android:layout_width="191dp"
-        android:layout_height="192dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
         android:background="#ffffff"
         android:drawableTop="@drawable/about"
         android:text="ABOUT"
         android:visibility="visible"
-        android:layout_alignParentRight="true" />
-</RelativeLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locate"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
+</android.support.constraint.ConstraintLayout>

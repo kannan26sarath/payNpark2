@@ -14,10 +14,10 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        ImageButton b2 = (ImageButton) findViewById(R.id.park);
+        Button b2 = (Button) findViewById(R.id.park);
         Button b3 = (Button) findViewById(R.id.search);
         Button b4 = (Button) findViewById(R.id.locate);
-        ImageButton b5 = (ImageButton) findViewById(R.id.billing);
+        Button b5 = (Button) findViewById(R.id.billing);
         Button b6 = (Button) findViewById(R.id.admin);
         Button b7 = (Button) findViewById(R.id.about);
         b2.setOnClickListener(new View.OnClickListener() {

@@ -24,6 +24,7 @@
         <activity android:name=".HomePage" />
         <activity
             android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".ParkActivity"

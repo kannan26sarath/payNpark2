@@ -11,6 +11,7 @@
         android:id="@+id/editTextsearch"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/edittextborder"
         android:focusable="false"
         android:fontFamily="@font/ssss"
         android:hint="Pick Datae"

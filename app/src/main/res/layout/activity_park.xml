@@ -44,6 +44,8 @@
         android:layout_marginLeft="53dp"
         android:layout_marginBottom="38dp"
         android:fontFamily="@font/aaaaa"
+        android:background="@color/Green"
+        android:textColor="@color/white"
         android:text="Park"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -54,8 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
+        android:background="@color/Red"
+        android:textColor="@color/white"
         android:layout_marginBottom="38dp"
         android:fontFamily="@font/aaaaa"
+
         android:text="reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

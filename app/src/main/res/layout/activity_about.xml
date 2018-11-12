@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="14dp"
         android:text="payNpark"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/textView8" />
 
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
         android:text="Version 2.18.341"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
         android:layout_marginBottom="158dp"
         android:lines="4"
         android:text="© 2014-2019 BST Inc.\n    All rights reserved"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

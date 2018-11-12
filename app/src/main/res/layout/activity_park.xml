@@ -11,13 +11,19 @@
         android:id="@+id/etxtVid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
+        android:fontFamily="@font/ssss"
         android:hint="Vehicle No"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sloteno"
+        app:layout_constraintEnd_toStartOf="@+id/sloteno"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="@+id/sloteno" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -37,6 +43,7 @@
         android:layout_marginStart="53dp"
         android:layout_marginLeft="53dp"
         android:layout_marginBottom="38dp"
+        android:fontFamily="@font/aaaaa"
         android:text="Park"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -48,6 +55,7 @@
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
         android:layout_marginBottom="38dp"
+        android:fontFamily="@font/aaaaa"
         android:text="reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -57,6 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:fontFamily="@font/ssss"
         android:text="TextView"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,45 +76,49 @@
         android:id="@+id/txttime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/ssss"
         android:text="TextView"
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/txtdate" />
+        app:layout_constraintStart_toStartOf="@+id/txtdate"
+        app:layout_constraintTop_toBottomOf="@+id/txtdate" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:fontFamily="@font/ssss"
         android:text="Park Date And Time"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxtVid" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/ssss"
         android:text="Select Vehicle Type"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtdate" />
+        app:layout_constraintTop_toBottomOf="@+id/txttime" />
 
     <EditText
         android:id="@+id/etxtMob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
+        android:fontFamily="@font/ssss"
         android:hint="Mobile No"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/btnRest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
     <TextView
@@ -113,10 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etxtVid"
         app:layout_constraintTop_toTopOf="parent" />
 
 

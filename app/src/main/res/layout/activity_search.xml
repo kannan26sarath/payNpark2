@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:hint="Pick Datae"
+        android:fontFamily="@font/ssss"
         app:layout_constraintStart_toStartOf="@+id/recyclerViewSearch"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17dp"
+        android:fontFamily="@font/aaaaa"
         android:layout_marginRight="17dp"
         android:text="Search"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextsearch"

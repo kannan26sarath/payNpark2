@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                            // Toast.makeText(getApplicationContext(),nme+psw,Toast.LENGTH_LONG ).show();
 
                                             if(nme.equals(uname)&&psw.equals(password1)){
-                                                Intent i = new Intent(LoginActivity.this,HomePage.class);
+                                                Intent i = new Intent(LoginActivity.this,SplashActivity.class);
                                                 startActivity(i);
                                                 finish();
                                                 break;

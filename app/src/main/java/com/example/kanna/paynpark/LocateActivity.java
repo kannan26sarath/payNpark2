@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.kanna.paynpark.Adapter.LocaterAdapter;
@@ -33,75 +36,99 @@ public class LocateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_locate);
 
 
+        final EditText txtVehno=findViewById(R.id.editTextvehno);
+        Button buttonLocate=findViewById(R.id.buttonLocate);
+
+
+
+
+
+
+
+
         final RecyclerView recyclerView=findViewById(R.id.my_recycler_viewlocate);
         recyclerView.setHasFixedSize(true);
         final RecyclerView.LayoutManager reLayoutManager=new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(reLayoutManager);
 
-        try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
 
-            OkHttpClient client = new OkHttpClient();
+        buttonLocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocate();
+            }
 
-            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/locateall.php").newBuilder();
-            //urlBuilder.addQueryParameter("PID", txtPID.getText().toString());
+            private void setLocate() {
 
-            String url = urlBuilder.build().toString();
+                try {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
+                    OkHttpClient client = new OkHttpClient();
 
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
+                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/locateall.php").newBuilder();
+                    urlBuilder.addQueryParameter("park_vehno", txtVehno.getText().toString());
 
-                }
+                    String url = urlBuilder.build().toString();
 
-                @Override
-                public void onResponse(Call call, final Response response) throws IOException {
+                    Request request = new Request.Builder()
+                            .url(url)
+                            .build();
 
-                    runOnUiThread(new Runnable() {
+                    client.newCall(request).enqueue(new Callback() {
                         @Override
-                        public void run() {
+                        public void onFailure(Call call, IOException e) {
 
-                            try {
-                                //txtInfo.setText(response.body().string());
-                                String[]arr;
+                        }
 
-                                try {
-                                    String data = response.body().string();
-                                    JSONArray jsonArray = new JSONArray(data);
+                        @Override
+                        public void onResponse(Call call, final Response response) throws IOException {
 
-                                    JSONObject jsonObject;
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    try {
+                                        //txtInfo.setText(response.body().string());
+                                        String[]arr;
+
+                                        try {
+                                            String data = response.body().string();
+                                            JSONArray jsonArray = new JSONArray(data);
+
+                                            JSONObject jsonObject;
                                     /* arr=new String[jsonArray.length()];
                                     for(int i=0; i<arr.length; i++) {
                                         arr[i]=jsonArray.optString(i);
                                     }*/
 
-                                    LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
-                                    recyclerView.setAdapter(reAdapter);
+                                            LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
+                                            recyclerView.setAdapter(reAdapter);
 
 
-                                } catch (JSONException e) {
-                                    Toast.makeText(getApplicationContext(),"Error in Getting Data",Toast.LENGTH_SHORT ).show();
+                                        } catch (JSONException e) {
+                                            Toast.makeText(getApplicationContext(),"Error in Getting Data",Toast.LENGTH_SHORT ).show();
+                                        }
+
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
                                 }
-
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
+                            });
                         }
+
+                        ;
                     });
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
-                ;
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            }
+        });
+
+
 
 
 

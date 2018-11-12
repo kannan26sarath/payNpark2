@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.kanna.paynpark.R;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     static JSONArray searchData;
@@ -30,6 +32,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, int i) {
 
+        try {
+
+            JSONObject jsonobject = searchData.getJSONObject(i);
+            viewHolder.txtid.setText(jsonobject.getString("park_vehno"));
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -38,10 +49,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtvno;
-        public TextView txtmob;
+        public TextView txtid;
+        //public TextView txtmob;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            txtid=itemView.findViewById(R.id.txtid);
 
         }
     }

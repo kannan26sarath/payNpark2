@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    private static int TIME_OUT = 1000;
+    private static int TIME_OUT = 2000;
 
 
     @Override

@@ -16,6 +16,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
         android:layout_marginBottom="15dp"
+        android:textColor="#ffffff"
         android:text="payNpark"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/textView8" />

@@ -30,7 +30,7 @@ public class BillingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_billing);
 
         final EditText txtparkno=findViewById(R.id.txtparkid);
-        final TextView txtvno=findViewById(R.id.txtvno);
+        final TextView txtvno=findViewById(R.id.textvhno);
         Button btnCaluclate=findViewById(R.id.buttonCalculate);
         btnCaluclate.setOnClickListener(new View.OnClickListener() {
             @Override

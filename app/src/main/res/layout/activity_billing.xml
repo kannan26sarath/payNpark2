@@ -23,7 +23,7 @@
         android:fontFamily="@font/ssss"
         android:hint="Parking No"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintBottom_toTopOf="@+id/textcatgry"
         app:layout_constraintEnd_toStartOf="@+id/buttonCalculate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,18 +32,18 @@
         android:id="@+id/textvhno"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="19dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:fontFamily="@font/ssss"
         android:text="Vehicle No"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintBottom_toTopOf="@+id/textparktime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/textcatgry"
         app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textcatgry"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="19dp"
@@ -53,13 +53,13 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ssss"
         android:hint="Category"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toTopOf="@+id/textparkdate"
         app:layout_constraintEnd_toStartOf="@+id/textvhno"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtparkid" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/texttotalhours"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="28dp"
@@ -69,29 +69,29 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ssss"
         android:text="Total Hours Parked"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/buttonpay"
+        app:layout_constraintEnd_toStartOf="@+id/texttotalamount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textparkdate" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textparkdate"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="29dp"
         android:layout_marginEnd="28dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="28dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ssss"
         android:text="Parking Date"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/textView15"
+        app:layout_constraintBottom_toTopOf="@+id/texttotalhours"
+        app:layout_constraintEnd_toStartOf="@+id/textparktime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textcatgry" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textparktime"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="29dp"
@@ -99,27 +99,27 @@
         android:layout_marginRight="16dp"
         android:fontFamily="@font/ssss"
         android:text="Parking Time"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/texttotalamount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toEndOf="@+id/textparkdate"
         app:layout_constraintTop_toBottomOf="@+id/textvhno" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/texttotalamount"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:fontFamily="@font/ssss"
         android:text="Total Amount"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttoncancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintStart_toEndOf="@+id/texttotalhours"
+        app:layout_constraintTop_toBottomOf="@+id/textparktime" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonpay"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -131,12 +131,12 @@
         android:background="@color/Green"
         android:text="Pay"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/buttoncancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/texttotalhours" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttoncancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="234dp"
@@ -148,8 +148,8 @@
         android:theme="@style/AppTheme.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintStart_toEndOf="@+id/buttonpay"
+        app:layout_constraintTop_toBottomOf="@+id/texttotalamount" />
 
 
     <Button
@@ -160,7 +160,7 @@
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:layout_marginTop="16dp"
-        android:background="@color/blue"
+        android:background="@drawable/roundbutton"
         android:fontFamily="@font/aaaaa"
         android:text="Generate Bill"
         android:textColor="@color/white"

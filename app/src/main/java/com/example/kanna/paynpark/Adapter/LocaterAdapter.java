@@ -38,8 +38,8 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
         try {
             //JSONObject jsonobject= Locatedata.getJSONArray(i);
             JSONObject jsonobject = Locatedata.getJSONObject(i);
-            viewHolder.txtvno.setText(jsonobject.getString("park_vehno"));
-            viewHolder.txtmob.setText(jsonobject.getString("park_mob"));
+            viewHolder.txtlocate.setText(jsonobject.getString("park_vehno"));
+           // viewHolder.txtmob.setText(jsonobject.getString("park_mob"));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -55,13 +55,13 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtvno;
-        public TextView txtmob;
+        public TextView txtlocate;
+        //public TextView txtmob;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtvno=itemView.findViewById(R.id.txtvno);
-            txtmob=itemView.findViewById(R.id.txtphno);
+            txtlocate=itemView.findViewById(R.id.txtLocateid);
+           // txtmob=itemView.findViewById(R.id.txtphno);
 
 
         }

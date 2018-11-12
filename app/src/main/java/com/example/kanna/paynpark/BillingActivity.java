@@ -31,6 +31,13 @@ public class BillingActivity extends AppCompatActivity {
 
         final EditText txtparkno=findViewById(R.id.txtparkid);
         final TextView txtvno=findViewById(R.id.textvhno);
+        final TextView txtpakdate=findViewById(R.id.textparkdate);
+        final TextView txtparktime=findViewById(R.id.textparktime);
+        final TextView txttotalamout=findViewById(R.id.texttotalamount);
+        final TextView txtprktime=findViewById(R.id.textparktime);
+        final TextView txtcatgry=findViewById(R.id.textcatgry);
+
+
         Button btnCaluclate=findViewById(R.id.buttonCalculate);
         btnCaluclate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +86,12 @@ public class BillingActivity extends AppCompatActivity {
                                             jsonObject = jsonArray.getJSONObject(0);
 
                                             txtvno.setText(jsonObject.getString("park_vehno"));
+                                            txtcatgry.setText(jsonObject.getString("park_catgry"));
+                                            txtpakdate.setText(jsonObject.getString("park_date"));
+                                            txtparktime.setText(jsonObject.getString("park_mob"));
+                                            txttotalamout.setText(jsonObject.getString("slote_id"));
+                                            txtprktime.setText(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)"));
+
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
 

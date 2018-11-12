@@ -1,93 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
     tools:layout_editor_absoluteY="25dp">
-<android.support.v7.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    card_view:cardCornerRadius="10dp"
-    android:layout_margin="5dp"
-    android:layout_gravity="center">
-    <TextView
-        android:id="@+id/txtsno"
-        android:layout_width="wrap_content"
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="20dp"
-        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtpno" />
+        app:layout_constraintTop_toTopOf="parent"
+        card_view:cardBackgroundColor="#ffffff"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="2dp"
+        card_view:cardMaxElevation="2dp"
+        card_view:cardPreventCornerOverlap="false"
+        card_view:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/txtpno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtcategory"
-        app:layout_constraintEnd_toStartOf="@+id/txtcategory"
-        app:layout_constraintStart_toStartOf="@+id/txtcategory" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtvno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="86dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/txtpno"
-        app:layout_constraintStart_toStartOf="@+id/txtpno"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txtLocateid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_marginStart="31dp"
+                android:text="FDSFSDFDSF"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="31dp" />
 
-    <TextView
-        android:id="@+id/txtcategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/txtdate"
-        app:layout_constraintStart_toStartOf="@+id/txtdate"
-        app:layout_constraintTop_toBottomOf="@+id/txtvno" />
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gifImageView3"
+                android:layout_width="100dp"
 
-    <TextView
-        android:id="@+id/txtdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtpno"
-        app:layout_constraintEnd_toStartOf="@+id/txttime"
-        app:layout_constraintStart_toStartOf="@+id/txttime" />
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="13dp"
+                android:layout_marginTop="51dp"
+                android:src="@drawable/loadercar"
+                card_view:layout_constraintHorizontal_bias="1.0"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="13dp" />
 
-    <TextView
-        android:id="@+id/txttime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtpno"
-        app:layout_constraintEnd_toStartOf="@+id/txtslotno"
-        app:layout_constraintStart_toStartOf="@+id/txtslotno" />
 
-    <TextView
-        android:id="@+id/txtslotno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtpno"
-        app:layout_constraintEnd_toStartOf="@+id/txtsno"
-        app:layout_constraintStart_toStartOf="@+id/txtsno" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txtphno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="253dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtsno"
-        app:layout_constraintStart_toStartOf="@+id/txtpno" />
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
+
+
 </android.support.constraint.ConstraintLayout>

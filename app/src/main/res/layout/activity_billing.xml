@@ -213,6 +213,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/buttonCalculate"
         app:layout_constraintStart_toStartOf="@+id/buttonCalculate"
+        style="@style/Widget.AppCompat.Button.Colored"
         app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <Button
@@ -223,6 +224,7 @@
         android:layout_marginRight="63dp"
         android:layout_marginBottom="51dp"
         android:text="Cancel"
+        android:theme="@style/AppTheme.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

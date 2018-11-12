@@ -63,7 +63,7 @@
         android:layout_marginRight="57dp"
         android:layout_marginBottom="14dp"
         android:src="@mipmap/ll"
-        app:civ_border_color="@color/colorAccent"
+        app:civ_border_color="#efeded"
         app:civ_border_width="3dp"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="@+id/textView8"

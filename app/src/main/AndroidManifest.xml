@@ -42,9 +42,11 @@
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".AboutActivity"
+            android:theme="@style/NoActionBar"
             android:parentActivityName=".HomePage" />
-        <activity android:name=".SlotActivity" />
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".SlotActivity"/>
+        <activity android:name=".SplashActivity"
+            android:theme="@style/NoActionBar"></activity>
     </application>
 
 </manifest>

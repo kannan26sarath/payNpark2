@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -13,10 +14,15 @@ public class AdminActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        Button fareb = (Button) findViewById(R.id.fareupdate);
+        //Button fareb = (Button) findViewById(R.id.fareupdate);
+        LinearLayout llchangepassword,llfareupdate,llrevenue,lllogout;
+        llchangepassword=findViewById(R.id.llchangep);
+        llfareupdate=findViewById(R.id.llfareup);
+        llrevenue=findViewById(R.id.llrev);
+        lllogout=findViewById(R.id.lllog);
 
 
-        fareb.setOnClickListener(new View.OnClickListener() {
+        llfareupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminActivity.this, FareupActivity.class);

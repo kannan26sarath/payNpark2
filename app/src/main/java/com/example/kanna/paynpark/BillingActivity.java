@@ -3,6 +3,7 @@ package com.example.kanna.paynpark;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -94,7 +95,10 @@ public class BillingActivity extends AppCompatActivity {
 
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
-
+                                            String Catgry=jsonObject.getString("park_catgry");
+                                            String Amount=getAmount(Catgry);
+                                           // Log.d("Amount",Amount[0]);
+                                            txttotalamout.setText(Amount);
                                         } catch (JSONException e) {
                                             //txtInfo.setText(e.getMessage());
                                             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
@@ -131,5 +135,95 @@ public class BillingActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+
+
+
+    private String getAmount(String catgry) {
+
+
+
+
+
+
+
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            OkHttpClient client = new OkHttpClient();
+
+            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/gerfair.php").newBuilder();
+            urlBuilder.addQueryParameter("park_cat",catgry);
+
+            String url = urlBuilder.build().toString();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try {
+                                //txtInfo.setText(response.body().string());
+
+                                try {
+                                    String data = response.body().string();
+
+                                    JSONArray jsonArray = new JSONArray(data);
+                                    JSONObject jsonObject;
+
+                                    jsonObject = jsonArray.getJSONObject(0);
+                                    String amnt ="";
+                                    amnt = jsonObject.getString("amount");
+                                    // txtPName.setText(jsonObject.getString("PName"));
+                                    //txtPrice.setText(jsonObject.getString("Price"));
+
+
+
+
+
+
+
+
+                                } catch (JSONException e) {
+                                    //txtInfo.setText(e.getMessage());
+                                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                                }
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+                }
+
+                ;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+        return catgry;
     }
 }

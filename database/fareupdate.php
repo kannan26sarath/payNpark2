@@ -11,11 +11,11 @@ $query = "UPDATE tbl_fair SET `amount`=$park_amount WHERE `catgry`='$park_catgry
 
 if(mysqli_query($conn, $query))
 {
-     echo "success";
+     echo "Amount Updated Successfully";
 }
 else
 {
-     echo "failed";
+     echo "Amount Update Failed ";
 }
 
 mysqli_close($conn);

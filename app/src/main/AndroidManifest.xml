@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kanna.paynpark">
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -24,8 +25,8 @@
         <activity android:name=".HomePage" />
         <activity
             android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ParkActivity"
             android:parentActivityName=".HomePage" />
@@ -43,11 +44,15 @@
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".AboutActivity"
-            android:theme="@style/NoActionBar"
-            android:parentActivityName=".HomePage" />
-        <activity android:name=".SlotActivity"/>
-        <activity android:name=".SplashActivity"
-            android:theme="@style/NoActionBar"></activity>
+            android:parentActivityName=".HomePage"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".SlotActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".ChangepassActivity" />
+        <activity android:name=".FareupActivity" />
+        <activity android:name=".RevenueActivity"></activity>
     </application>
 
 </manifest>

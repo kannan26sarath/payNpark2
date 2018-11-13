@@ -35,6 +35,7 @@ public class FareupActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
+
         saveb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

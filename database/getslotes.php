@@ -1,10 +1,9 @@
-
 <?php
 
 $conn = mysqli_connect("localhost","17lemca049", "1174", "17lemca049");
 
-
-$records = mysqli_query($conn,"SELECT `slote_id` FROM `tbl_park` WHERE cast(`park_date` as date)=CURRENT_DATE");
+//$qrys="SELECT `slote_id` FROM `tbl_park` WHERE cast(`park_date` as date)=CURRENT_DATE"
+$records = mysqli_query($conn,"SELECT `slote_id`  FROM `tbl_park` WHERE `park_status`=0");
 
 $data = array();
 

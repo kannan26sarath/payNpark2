@@ -1,14 +1,9 @@
 <?php
 
 $conn = mysqli_connect("localhost","17lemca049", "1174", "17lemca049");
+$park_cat=$_GET['park_cat'];
 
-
-//$records = mysqli_query($conn,"SELECT * FROM `tbl_park`");
-
-$pid=$_GET['park_vehno'];
-
-$records = mysqli_query($conn,"SELECT * FROM `tbl_park` WHERE `park_vehno`='$pid' AND `park_status`=0;");
-
+$records = mysqli_query($conn,"SELECT * FROM `tbl_fair` WHERE `catgry`='$park_cat'");
 
 $data = array();
 

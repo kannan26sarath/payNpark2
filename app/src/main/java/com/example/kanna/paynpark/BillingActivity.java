@@ -36,7 +36,7 @@ import okhttp3.Response;
 
 public class BillingActivity extends AppCompatActivity {
 
-    public String catgry,vhno,pdate,ptime,totalprktime,prkamnt,mob="";
+    public String catgry,vhno,pdate,ptime,totalprktime,prkamnt,mob,pid,totoamnt="";
     public  static final int PERMISSIONS_MULTIPLE_REQUEST = 0;
 
     @Override
@@ -71,6 +71,7 @@ public class BillingActivity extends AppCompatActivity {
 
                     HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/payment.php").newBuilder();
                     urlBuilder.addQueryParameter("park_id", String.valueOf( txtparkno.getText()));
+                    pid= txtparkno.getText().toString();
 
                     String url = urlBuilder.build().toString();
 
@@ -207,7 +208,8 @@ public class BillingActivity extends AppCompatActivity {
                                             int hours=Integer.valueOf(totalprktime) /3600;
                                             txtparktime.setText(hours+  " hour");
                                             int day=Integer.valueOf(totalprktime)/86400;
-                                            txttotalamout.setText(String.valueOf(Integer.valueOf(amnt)*day)) ;
+                                            totoamnt=String.valueOf(Integer.valueOf(amnt)*day);
+                                            txttotalamout.setText(String.valueOf(totoamnt));
 
 
                                            // txttotalamout.setText(amnt);
@@ -251,31 +253,35 @@ public class BillingActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
                         checkPermission();
 
+                        UpdatePark();
 
 
 
 
 
-                sendMessage("9072948997","hai this is text");
+
+
+
 
             }
 
             private void checkPermission() {
 
                 if (ContextCompat.checkSelfPermission(BillingActivity.this,
-                        Manifest.permission.READ_SMS) + ContextCompat
+                        Manifest.permission.READ_PHONE_STATE) + ContextCompat
                         .checkSelfPermission(BillingActivity.this,
-                                Manifest.permission.READ_PHONE_STATE)
+                                Manifest.permission.SEND_SMS)
                         != PackageManager.PERMISSION_GRANTED) {
 
                     if (ActivityCompat.shouldShowRequestPermissionRationale
-                            (BillingActivity.this, Manifest.permission.READ_SMS) ||
+                            (BillingActivity.this, Manifest.permission.SEND_SMS) ||
                             ActivityCompat.shouldShowRequestPermissionRationale
                                     (BillingActivity.this, Manifest.permission.READ_PHONE_STATE)) {
                         Snackbar.make(BillingActivity.this.findViewById(android.R.id.content),
-                                "Please Grant Permissions to upload profile photo",
+                                "Please Grant Permissions to Send SMS",
                                 Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
                                 new View.OnClickListener() {
                                     @Override
@@ -283,7 +289,7 @@ public class BillingActivity extends AppCompatActivity {
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                             requestPermissions(
                                                     new String[]{Manifest.permission
-                                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                                            .SEND_SMS, Manifest.permission.READ_PHONE_STATE},
                                                     PERMISSIONS_MULTIPLE_REQUEST);
                                         }
                                     }
@@ -292,16 +298,83 @@ public class BillingActivity extends AppCompatActivity {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             requestPermissions(
                                     new String[]{Manifest.permission
-                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                            .SEND_SMS, Manifest.permission.READ_PHONE_STATE},
                                     PERMISSIONS_MULTIPLE_REQUEST);
                         }
                     }
                 } else {
                     // write your logic code if permission already granted
+
+                   // sendMessage("9072948997","hai this is text");
                 }
 
             }
         });
+
+
+
+    }
+
+    private void UpdatePark() {
+
+
+
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            OkHttpClient client = new OkHttpClient();
+
+            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/updateparker.php").newBuilder();
+
+            urlBuilder.addQueryParameter("park_id",pid);
+
+            urlBuilder.addQueryParameter("amount",totoamnt);
+
+            String url = urlBuilder.build().toString();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try {
+                                // txtInfo.setText(response.body().string());
+                                Toast.makeText(getApplicationContext(),response.body().string(),Toast.LENGTH_LONG).show();
+
+
+
+
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+                }
+
+                ;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
 
 
 
@@ -320,6 +393,7 @@ public class BillingActivity extends AppCompatActivity {
         }
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -327,15 +401,19 @@ public class BillingActivity extends AppCompatActivity {
         switch (requestCode) {
             case PERMISSIONS_MULTIPLE_REQUEST:
                 if (grantResults.length > 0) {
-                    boolean cameraPermission = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    boolean readExternalFile = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean cameraPermission = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean readExternalFile = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                     if(cameraPermission && readExternalFile)
                     {
                         // write your logic here
+
+                        //sendMessage("9072948997","hai this is text");
+
+
                     } else {
                         Snackbar.make(BillingActivity.this.findViewById(android.R.id.content),
-                                "Please Grant Permissions to upload profile photo",
+                                "Please Grant Permissions to Send SMS",
                                 Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
                                 new View.OnClickListener() {
                                     @Override
@@ -343,7 +421,7 @@ public class BillingActivity extends AppCompatActivity {
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                             requestPermissions(
                                                     new String[]{Manifest.permission
-                                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                                            .SEND_SMS, Manifest.permission.READ_PHONE_STATE},
                                                     PERMISSIONS_MULTIPLE_REQUEST);
                                         }
                                     }
@@ -353,5 +431,6 @@ public class BillingActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
 }

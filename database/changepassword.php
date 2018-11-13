@@ -10,13 +10,20 @@ $npassword=$_GET['npassword'];
 $query1= "SELECT * FROM tbl_login WHERE `username`='usname' AND `password`='password';";
 $query2= "UPDATE tbl_login SET`password`='npassword' where `username`='usname';";
 
-if(mysqli_query($conn, $query))
+if(mysqli_query($conn, $query1))
+{
+    
+	 if(mysqli_query($conn, $query2))
 {
      echo "password changed successfully";
+	 
+}
+	 
 }
 else
 {
      echo "password change failed";
+	 
 }
 
 mysqli_close($conn);

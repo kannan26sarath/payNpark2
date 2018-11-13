@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:text="Change password"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:text="fare update"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="212dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="revenue"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="275dp" />
 </android.support.constraint.ConstraintLayout>

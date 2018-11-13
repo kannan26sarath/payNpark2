@@ -6,4 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".ChangepassActivity">
 
+    <EditText
+        android:id="@+id/usname"
+        android:layout_width="228dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="username"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <EditText
+        android:id="@+id/opass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="password"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <EditText
+        android:id="@+id/npass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="new password"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="273dp" />
+
+    <EditText
+        android:id="@+id/cpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="confirm password"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="363dp" />
+
+    <Button
+        android:id="@+id/okb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ok"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="456dp" />
+
+    <Button
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="456dp" />
 </android.support.constraint.ConstraintLayout>

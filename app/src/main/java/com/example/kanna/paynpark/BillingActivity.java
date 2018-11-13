@@ -1,12 +1,23 @@
 package com.example.kanna.paynpark;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.StrictMode;
+import android.os.strictmode.SqliteObjectLeakedViolation;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +36,9 @@ import okhttp3.Response;
 
 public class BillingActivity extends AppCompatActivity {
 
+    public String catgry,vhno,pdate,ptime,totalprktime,prkamnt,mob="";
+    public  static final int PERMISSIONS_MULTIPLE_REQUEST = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +52,13 @@ public class BillingActivity extends AppCompatActivity {
         final TextView txtprktime=findViewById(R.id.textparktime);
         final TextView txtcatgry=findViewById(R.id.textcatgry);
 
+        Button btnPay=findViewById(R.id.buttonpay);
 
-        Button btnCaluclate=findViewById(R.id.buttonCalculate);
+
+        ImageButton btnCaluclate=findViewById(R.id.buttonCalculate);
         btnCaluclate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
 
 
@@ -86,19 +102,28 @@ public class BillingActivity extends AppCompatActivity {
 
                                             jsonObject = jsonArray.getJSONObject(0);
 
-                                            txtvno.setText(jsonObject.getString("park_vehno"));
+                                            catgry=jsonObject.getString("park_catgry");
+                                            vhno=jsonObject.getString("park_vehno");
+                                            pdate=jsonObject.getString("park_date");
+                                            totalprktime= String.valueOf(Integer.valueOf(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)")));
+                                            mob=jsonObject.getString("park_mob");
+
+
+
+                                            /*txtvno.setText(jsonObject.getString("park_vehno"));
                                             txtcatgry.setText(jsonObject.getString("park_catgry"));
                                             txtpakdate.setText(jsonObject.getString("park_date"));
                                             txtparktime.setText(jsonObject.getString("park_mob"));
                                             txttotalamout.setText(jsonObject.getString("slote_id"));
                                             txtprktime.setText(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)"));
+*/
+
 
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
                                             String Catgry=jsonObject.getString("park_catgry");
-                                            String Amount=getAmount(Catgry);
+                                            getAmount(Catgry);
                                            // Log.d("Amount",Amount[0]);
-                                            txttotalamout.setText(Amount);
                                         } catch (JSONException e) {
                                             //txtInfo.setText(e.getMessage());
                                             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
@@ -129,101 +154,204 @@ public class BillingActivity extends AppCompatActivity {
 
 
             }
+
+            public void getAmount(final String catgry) {
+
+
+                try {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+
+                    OkHttpClient client = new OkHttpClient();
+
+                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/gerfair.php").newBuilder();
+                    urlBuilder.addQueryParameter("park_cat",catgry);
+
+                    String url = urlBuilder.build().toString();
+
+                    Request request = new Request.Builder()
+                            .url(url)
+                            .build();
+
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(Call call, final Response response) throws IOException {
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    try {
+                                        //txtInfo.setText(response.body().string());
+
+                                        try {
+                                            String data = response.body().string();
+
+                                            JSONArray jsonArray = new JSONArray(data);
+                                            JSONObject jsonObject;
+
+                                            jsonObject = jsonArray.getJSONObject(0);
+                                            String amnt ="";
+                                            amnt = jsonObject.getString("amount");
+                                            // txtPName.setText(jsonObject.getString("PName"));
+                                            //txtPrice.setText(jsonObject.getString("Price"));
+
+                                            txtcatgry.setText(catgry);
+                                            txtvno.setText(vhno);
+                                            txtpakdate.setText(pdate);
+                                            int hours=Integer.valueOf(totalprktime) /3600;
+                                            txtparktime.setText(hours+  " hour");
+                                            int day=Integer.valueOf(totalprktime)/86400;
+                                            txttotalamout.setText(String.valueOf(Integer.valueOf(amnt)*day)) ;
+
+
+                                           // txttotalamout.setText(amnt);
+
+
+
+
+
+
+
+
+                                        } catch (JSONException e) {
+                                            //txtInfo.setText(e.getMessage());
+                                            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                                        }
+
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            });
+                        }
+
+                        ;
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
         });
 
 
 
 
 
+        btnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                        checkPermission();
+
+
+
+
+
+
+                sendMessage("9072948997","hai this is text");
+
+            }
+
+            private void checkPermission() {
+
+                if (ContextCompat.checkSelfPermission(BillingActivity.this,
+                        Manifest.permission.READ_SMS) + ContextCompat
+                        .checkSelfPermission(BillingActivity.this,
+                                Manifest.permission.READ_PHONE_STATE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    if (ActivityCompat.shouldShowRequestPermissionRationale
+                            (BillingActivity.this, Manifest.permission.READ_SMS) ||
+                            ActivityCompat.shouldShowRequestPermissionRationale
+                                    (BillingActivity.this, Manifest.permission.READ_PHONE_STATE)) {
+                        Snackbar.make(BillingActivity.this.findViewById(android.R.id.content),
+                                "Please Grant Permissions to upload profile photo",
+                                Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                            requestPermissions(
+                                                    new String[]{Manifest.permission
+                                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                                    PERMISSIONS_MULTIPLE_REQUEST);
+                                        }
+                                    }
+                                }).show();
+                    } else {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            requestPermissions(
+                                    new String[]{Manifest.permission
+                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                    PERMISSIONS_MULTIPLE_REQUEST);
+                        }
+                    }
+                } else {
+                    // write your logic code if permission already granted
+                }
+
+            }
+        });
+
+
+
     }
 
-
-
-
-
-    private String getAmount(String catgry) {
-
-
-
-
-
-
-
+    private void sendMessage(String phoneNo, String msg) {
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-
-            OkHttpClient client = new OkHttpClient();
-
-            HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/gerfair.php").newBuilder();
-            urlBuilder.addQueryParameter("park_cat",catgry);
-
-            String url = urlBuilder.build().toString();
-
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
-
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-
-                }
-
-                @Override
-                public void onResponse(Call call, final Response response) throws IOException {
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            try {
-                                //txtInfo.setText(response.body().string());
-
-                                try {
-                                    String data = response.body().string();
-
-                                    JSONArray jsonArray = new JSONArray(data);
-                                    JSONObject jsonObject;
-
-                                    jsonObject = jsonArray.getJSONObject(0);
-                                    String amnt ="";
-                                    amnt = jsonObject.getString("amount");
-                                    // txtPName.setText(jsonObject.getString("PName"));
-                                    //txtPrice.setText(jsonObject.getString("Price"));
-
-
-
-
-
-
-
-
-                                } catch (JSONException e) {
-                                    //txtInfo.setText(e.getMessage());
-                                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-                                }
-
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    });
-                }
-
-                ;
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+            Toast.makeText(getApplicationContext(), "Message Sent",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(),ex.getMessage().toString(),
+                    Toast.LENGTH_LONG).show();
+            ex.printStackTrace();
         }
 
-
-
-
-
-
-        return catgry;
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode) {
+            case PERMISSIONS_MULTIPLE_REQUEST:
+                if (grantResults.length > 0) {
+                    boolean cameraPermission = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                    boolean readExternalFile = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+
+                    if(cameraPermission && readExternalFile)
+                    {
+                        // write your logic here
+                    } else {
+                        Snackbar.make(BillingActivity.this.findViewById(android.R.id.content),
+                                "Please Grant Permissions to upload profile photo",
+                                Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                            requestPermissions(
+                                                    new String[]{Manifest.permission
+                                                            .READ_SMS, Manifest.permission.READ_PHONE_STATE},
+                                                    PERMISSIONS_MULTIPLE_REQUEST);
+                                        }
+                                    }
+                                }).show();
+                    }
+                }
+                break;
+        }
+    }
+
 }

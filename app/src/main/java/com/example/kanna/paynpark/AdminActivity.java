@@ -30,5 +30,13 @@ public class AdminActivity extends AppCompatActivity {
 
             }
         });
+        llchangepassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminActivity.this, ChangepassActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 }

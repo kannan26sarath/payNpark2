@@ -92,8 +92,6 @@ public class BillingActivity extends AppCompatActivity {
                                             txttotalamout.setText(jsonObject.getString("slote_id"));
                                             txtprktime.setText(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)"));
 
-
-
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
 

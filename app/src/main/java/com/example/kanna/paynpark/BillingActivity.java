@@ -92,6 +92,8 @@ public class BillingActivity extends AppCompatActivity {
                                             txttotalamout.setText(jsonObject.getString("slote_id"));
                                             txtprktime.setText(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)"));
 
+                                            String faris=getFair(jsonObject.getString("park_catgry"));
+
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
 
@@ -105,6 +107,99 @@ public class BillingActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
 
+                                }
+
+
+                                //get fair method
+                                private String getFair(String park_catgry) {
+                                    String fair = null;
+
+                                   /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                                    try {
+                                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                                        StrictMode.setThreadPolicy(policy);
+
+                                        OkHttpClient client = new OkHttpClient();
+
+                                        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/payment.php").newBuilder();
+                                        urlBuilder.addQueryParameter("park_id", String.valueOf( txtparkno.getText()));
+
+                                        String url = urlBuilder.build().toString();
+
+                                        Request request = new Request.Builder()
+                                                .url(url)
+                                                .build();
+
+                                        client.newCall(request).enqueue(new Callback() {
+                                            @Override
+                                            public void onFailure(Call call, IOException e) {
+
+                                            }
+
+                                            @Override
+                                            public void onResponse(Call call, final Response response) throws IOException {
+
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+
+                                                        try {
+                                                            //txtInfo.setText(response.body().string());
+
+                                                            try {
+                                                                String data = response.body().string();
+
+                                                                JSONArray jsonArray = new JSONArray(data);
+                                                                JSONObject jsonObject;
+
+                                                                jsonObject = jsonArray.getJSONObject(0);
+
+                                                                txtvno.setText(jsonObject.getString("park_vehno"));
+                                                                txtcatgry.setText(jsonObject.getString("park_catgry"));
+                                                                txtpakdate.setText(jsonObject.getString("park_date"));
+                                                                txtparktime.setText(jsonObject.getString("park_mob"));
+                                                                txttotalamout.setText(jsonObject.getString("slote_id"));
+                                                                txtprktime.setText(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)"));
+
+                                                                String faris=getFair(jsonObject.getString("park_catgry"));
+
+                                                                // txtPName.setText(jsonObject.getString("PName"));
+                                                                //txtPrice.setText(jsonObject.getString("Price"));
+
+                                                            } catch (JSONException e) {
+                                                                //txtInfo.setText(e.getMessage());
+                                                                Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                                                            }
+
+
+                                                        } catch (IOException e) {
+                                                            e.printStackTrace();
+                                                        }
+
+                                                    }
+
+
+
+                                                });
+                                            }
+
+                                            ;
+                                        });
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                 return fair;
                                 }
                             });
                         }

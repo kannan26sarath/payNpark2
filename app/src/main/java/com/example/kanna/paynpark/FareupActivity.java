@@ -30,7 +30,7 @@ public class FareupActivity extends AppCompatActivity {
         final EditText newamt = (EditText) findViewById(R.id.amttxt);
         Button saveb = (Button) findViewById(R.id.save);
 
-        final Spinner dropdown = findViewById(R.id.spinner1);
+        final Spinner dropdown = findViewById(R.id.catspin);
         String[] items = new String[]{"2 wheeler", "4 wheeler"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
@@ -51,7 +51,7 @@ public class FareupActivity extends AppCompatActivity {
 
                     OkHttpClient client = new OkHttpClient();
 
-                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/create.php").newBuilder();
+                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/fareupdate.php").newBuilder();
 
                     urlBuilder.addQueryParameter("park_catgry", dropdown.getSelectedItem().toString());
 

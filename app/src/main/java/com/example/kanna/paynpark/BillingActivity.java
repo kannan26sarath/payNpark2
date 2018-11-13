@@ -305,7 +305,7 @@ public class BillingActivity extends AppCompatActivity {
                 } else {
                     // write your logic code if permission already granted
 
-                   // sendMessage("9072948997","hai this is text");
+                   sendMessage("9072948997","hai this is text");
                 }
 
             }
@@ -382,8 +382,16 @@ public class BillingActivity extends AppCompatActivity {
 
     private void sendMessage(String phoneNo, String msg) {
         try {
+
+            String MSG="Hi Customer,\n" +
+                    "Thank you for parking with us ❤\n" +
+                    "Parking ID : payNpark@21\n" +
+                    "Slot No :  12\n" +
+                    "This transaction cannot be cancelled \n" +
+                    "as per parking cancellation policy. \n";
+
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+            smsManager.sendTextMessage(phoneNo, null, MSG, null, null);
             Toast.makeText(getApplicationContext(), "Message Sent",
                     Toast.LENGTH_LONG).show();
         } catch (Exception ex) {
@@ -408,7 +416,7 @@ public class BillingActivity extends AppCompatActivity {
                     {
                         // write your logic here
 
-                        //sendMessage("9072948997","hai this is text");
+                        sendMessage("9072948997","hai this is text");
 
 
                     } else {

@@ -7,8 +7,8 @@ $password=$_GET['password'];
 $npassword=$_GET['npassword'];
 
 
-$query1= "SELECT * FROM tbl_login WHERE `username`='usname' AND `password`='password';";
-$query2= "UPDATE tbl_login SET`password`='npassword' where `username`='usname';";
+$query1= "SELECT * FROM `tbl_login` WHERE `username`='$username' AND `password`='$password';";
+$query2= "UPDATE `tbl_login` SET `password`='$npassword' where `username`='$username';";
 
 if(mysqli_query($conn, $query1))
 {

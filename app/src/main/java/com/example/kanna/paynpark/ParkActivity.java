@@ -49,6 +49,24 @@ public class ParkActivity extends AppCompatActivity {
         TextView txtSloteno=findViewById(R.id.sloteno);
 
 
+        Button btnOpenReader=findViewById(R.id.btnOpenreader);
+
+
+        btnOpenReader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(ParkActivity.this,NumberPlateReaderActivity.class));
+
+            }
+        });
+
+
+
+
+
+
+
         final Spinner dropdown = findViewById(R.id.spinner1);
         String[] items = new String[]{"2 wheeler", "4 wheeler"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -78,9 +96,23 @@ public class ParkActivity extends AppCompatActivity {
         final String times = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
         // txttime.setText(today.hour+":"+today.minute+""+""+today.timezone);
         txttime.setText(times);
-
-
         final String finalFormattedDate = formattedDate;
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etxtVid.setText("");
+                txtDate.setText("");
+                txttime.setText("");
+                etxtMobileNum.setText("");
+                txtDate.setText(finalFormattedDate.toString());
+                txttime.setText(times);
+            }
+
+        });
+
+
+
         btnPark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,18 +164,6 @@ public class ParkActivity extends AppCompatActivity {
                                         etxtMobileNum.setText("");
                                         txtDate.setText(finalFormattedDate.toString());
                                         txttime.setText(times);
-                                        btnReset.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                etxtVid.setText("");
-                                                txtDate.setText("");
-                                                txttime.setText("");
-                                                etxtMobileNum.setText("");
-                                                txtDate.setText(finalFormattedDate.toString());
-                                                txttime.setText(times);
-                                            }
-
-                                        });
 
 
                                         new Handler().postDelayed(new Runnable() {

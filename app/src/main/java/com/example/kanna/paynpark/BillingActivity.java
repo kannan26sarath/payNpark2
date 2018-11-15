@@ -387,8 +387,7 @@ public class BillingActivity extends AppCompatActivity {
                     "Thank you for parking with us ❤\n" +
                     "Parking ID : payNpark@21\n" +
                     "Slot No :  12\n" +
-                    "This transaction cannot be cancelled \n" +
-                    "as per parking cancellation policy. \n";
+                    "This transaction cannot be cancelled \n";
 
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNo, null, MSG, null, null);

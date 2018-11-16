@@ -343,9 +343,9 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         } else if ((int) view.getTag() == STATUS_BOOKED) {
-            Toast.makeText(this, "Slot " + view.getId() + " Succussfully Allotted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Slot " + view.getId() + "  Already Parked ", Toast.LENGTH_SHORT).show();
         } else if ((int) view.getTag() == STATUS_AVAILABLE) {
-            Toast.makeText(this, "Slot " + view.getId() + " Already Parked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Slot " + view.getId() + " Succussfully Allotted", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class HomePage extends AppCompatActivity {
 
@@ -14,13 +15,20 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Button b2 = (Button) findViewById(R.id.park);
-        Button b3 = (Button) findViewById(R.id.search);
-        Button b4 = (Button) findViewById(R.id.locate);
-        Button b5 = (Button) findViewById(R.id.billing);
-        Button b6 = (Button) findViewById(R.id.admin);
-        Button b7 = (Button) findViewById(R.id.about);
-        b2.setOnClickListener(new View.OnClickListener() {
+        LinearLayout llparka,llsearcha,lllocatea,llbillinga,lladmina,llappinfoa ;
+        llparka=findViewById(R.id.llpark);
+        llsearcha=findViewById(R.id.llsearch);
+        lllocatea=findViewById(R.id.lllocate);
+        llbillinga=findViewById(R.id.llbill);
+        lladmina=findViewById(R.id.lladmin);
+        llappinfoa=findViewById(R.id.llapp);
+        //Button b2 = (Button) findViewById(R.id.park);
+        //Button b3 = (Button) findViewById(R.id.search);
+        //Button b4 = (Button) findViewById(R.id.locate);
+        //Button b5 = (Button) findViewById(R.id.billing);
+       // Button b6 = (Button) findViewById(R.id.admin);
+       // Button b7 = (Button) findViewById(R.id.about);
+        llparka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, SlotActivity.class);
@@ -28,7 +36,7 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        b3.setOnClickListener(new View.OnClickListener() {
+        llsearcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, SearchActivity.class);
@@ -36,7 +44,7 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        b4.setOnClickListener(new View.OnClickListener() {
+        lllocatea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, LocateActivity.class);
@@ -44,7 +52,7 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        b5.setOnClickListener(new View.OnClickListener() {
+        llbillinga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, BillingActivity.class);
@@ -52,7 +60,7 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        b6.setOnClickListener(new View.OnClickListener() {
+        lladmina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, AdminActivity.class);
@@ -60,7 +68,7 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        b7.setOnClickListener(new View.OnClickListener() {
+        llappinfoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, AboutActivity.class);

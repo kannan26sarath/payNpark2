@@ -1,123 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"
-    tools:layout_editor_absoluteY="25dp">
-
+    tools:context="com.example.kanna.paynpark.AdminActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#fcfcfc"
+    android:gravity="center"
+    android:id="@+id/ll">
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@color/Green"
-        app:layout_constraintBottom_toTopOf="@+id/search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/bankcardId"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:id="@+id/llpark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+
+                    android:src="@drawable/park"
+                    android:padding="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/ssss"
+                    android:layout_marginTop="10dp"
+                    android:text="park"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:id="@+id/llsearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+
+                    android:src="@drawable/search"
+                    android:padding="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/ssss"
+                    android:layout_marginTop="10dp"
+                    android:text="search"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:id="@+id/lllocate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
 
-    <Button
-        android:id="@+id/park"
-        android:layout_width="190dp"
-        android:layout_height="163dp"
-        android:layout_alignParentTop="true"
-        android:background="#ffffff"
-        android:drawableTop="@drawable/park"
-        android:fontFamily="@font/oooo"
-        android:paddingTop="5dp"
-        android:text="PARK"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/locate"
-        app:layout_constraintEnd_toStartOf="@+id/search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                    android:src="@drawable/locate"
+                    android:padding="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-    <Button
-        android:id="@+id/search"
-        android:layout_width="190dp"
-        android:layout_height="164dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="22dp"
-        android:background="#ffffff"
-        android:drawableTop="@drawable/search"
-        android:fontFamily="@font/oooo"
-        android:paddingTop="5dp"
-        android:text="SEARCH"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/locate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/park"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                    android:fontFamily="@font/ssss"
+                    android:layout_marginTop="10dp"
+                    android:text="locate"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
 
-    <Button
-        android:id="@+id/locate"
-        android:layout_width="193dp"
-        android:layout_height="174dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
 
-        android:background="#ffffff"
-        android:drawableTop="@drawable/locate"
-        android:fontFamily="@font/oooo"
-        android:text="LOCATE"
-        app:layout_constraintBottom_toTopOf="@+id/admin"
-        app:layout_constraintEnd_toStartOf="@+id/billing"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
 
-    <Button
-        android:id="@+id/billing"
-        android:layout_width="192dp"
-        android:layout_height="176dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="#ffffff"
-        android:drawableTop="@drawable/butt"
-        android:fontFamily="@font/oooo"
-        android:text="BILLING"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/admin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/locate"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+            <LinearLayout
+                android:id="@+id/llbill"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    <Button
-        android:id="@+id/admin"
-        android:layout_width="193dp"
-        android:layout_height="142dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
-        android:drawableTop="@drawable/admin"
-        android:fontFamily="@font/oooo"
-        android:text="ADMIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/about"
-        app:layout_constraintTop_toBottomOf="@+id/locate" />
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
 
-    <Button
-        android:id="@+id/about"
-        android:layout_width="192dp"
-        android:layout_height="164dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
-        android:drawableTop="@drawable/about"
-        android:fontFamily="@font/oooo"
-        android:text="app info"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/admin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locate" />
-</android.support.constraint.ConstraintLayout>
+                    android:padding="2dp"
+                    android:src="@drawable/butt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/ssss"
+                    android:text="billing"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/lightgray" />
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/bankcardId2"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:id="@+id/lladmin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+
+                    android:src="@drawable/admin"
+                    android:padding="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/ssss"
+                    android:layout_marginTop="10dp"
+                    android:text="admin "/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:id="@+id/llapp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+
+                    android:src="@drawable/about"
+                    android:padding="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/ssss"
+                    android:layout_marginTop="10dp"
+                    android:text="app info"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

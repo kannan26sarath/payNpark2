@@ -13,7 +13,8 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        sendSMS("9072948997","hai this is text");
+        sendSMS("9072948997","Hi Customer");
+
 
 
 

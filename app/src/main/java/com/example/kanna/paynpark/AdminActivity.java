@@ -38,5 +38,21 @@ public class AdminActivity extends AppCompatActivity {
 
             }
         });
+        llrevenue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminActivity.this, RevenueActivity.class);
+                startActivity(i);
+
+            }
+        });
+        lllogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminActivity.this, LoginActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 }

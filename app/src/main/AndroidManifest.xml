@@ -7,8 +7,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -26,9 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage"
-            android:theme="@style/NoActionBar"
-            />
+        <activity
+            android:name=".HomePage"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar"
@@ -59,7 +59,7 @@
         <activity android:name=".ChangepassActivity" />
         <activity android:name=".FareupActivity" />
         <activity android:name=".RevenueActivity" />
-        <activity android:name=".NumberPlateReaderActivity"></activity>
+        <activity android:name=".NumberPlateReaderActivity" />
     </application>
 
 </manifest>

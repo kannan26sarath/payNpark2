@@ -27,15 +27,11 @@ public class ChangepassActivity extends AppCompatActivity {
         final EditText opass=findViewById(R.id.opass);
         final EditText npass=findViewById(R.id.npass);
         final EditText cpass=findViewById(R.id.cpass);
-        String newpass = null;
+
 
         final Button okb=findViewById(R.id.okb);
         final Button cb=findViewById(R.id.cb);
-        if(npass.getText().toString()==cpass.getText().toString()) {
-             newpass = npass.getText().toString();
-        }
 
-        final String finalNewpass = newpass;
         okb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,15 +39,21 @@ public class ChangepassActivity extends AppCompatActivity {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
+            String newpass = null;
 
             OkHttpClient client = new OkHttpClient();
+            if(npass.getText().toString()==cpass.getText().toString()) {
+                newpass = npass.getText().toString();
+            }
+
+
 
             HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/changepassword.php").newBuilder();
 
             urlBuilder.addQueryParameter("username",usname.getText().toString());
 
             urlBuilder.addQueryParameter("password",opass.getText().toString());
-            urlBuilder.addQueryParameter("npassword", finalNewpass);
+            urlBuilder.addQueryParameter("npassword", newpass);
             
 
             String url = urlBuilder.build().toString();

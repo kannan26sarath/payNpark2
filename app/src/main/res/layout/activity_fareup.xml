@@ -10,44 +10,50 @@
 
     <EditText
         android:id="@+id/amttxt"
-        android:layout_width="wrap_content"
+        android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_marginBottom="337dp"
+        android:background="@drawable/edittextborder"
         android:ems="10"
+        android:fontFamily="@font/ssss"
         android:hint="New Amount"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/catspin" />
 
     <Spinner
         android:id="@+id/catspin"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
+
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="117dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        android:background="@android:drawable/btn_dropdown"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/edittextborder"
         android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/amttxt"
         app:layout_constraintEnd_toStartOf="@+id/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/save" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/save"
-        android:layout_width="0dp"
+        android:layout_width="132dp"
         android:layout_height="116dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
+        style="@style/AppTheme.Button"
+        android:background="@color/Green"
+        android:fontFamily="@font/aaaaa"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/amttxt"
+        app:layout_constraintStart_toEndOf="@+id/catspin"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

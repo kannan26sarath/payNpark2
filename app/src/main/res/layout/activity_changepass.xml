@@ -4,76 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangepassActivity">
+    tools:context=".ChangepassActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <EditText
         android:id="@+id/usname"
-        android:layout_width="228dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/ssss"
+        android:background="@drawable/edittextborder"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="79dp" />
 
     <EditText
         android:id="@+id/opass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:background="@drawable/edittextborder"
+        android:fontFamily="@font/ssss"
         android:ems="10"
         android:hint="password"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/npass"
-        app:layout_constraintStart_toStartOf="@+id/usname"
-        app:layout_constraintTop_toBottomOf="@+id/usname" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="168dp" />
 
     <EditText
         android:id="@+id/npass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_width="340dp"
+        android:fontFamily="@font/ssss"
+        android:layout_height="70dp"
+        android:background="@drawable/edittextborder"
         android:ems="10"
         android:hint="new password"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/cpass"
-        app:layout_constraintStart_toStartOf="@+id/cpass"
-        app:layout_constraintTop_toBottomOf="@+id/opass" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="260dp" />
 
     <EditText
         android:id="@+id/cpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/ssss"
+        android:background="@drawable/edittextborder"
         android:ems="10"
         android:hint="confirm password"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/npass" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="350dp" />
 
     <Button
         android:id="@+id/okb"
-        android:layout_width="wrap_content"
+        android:layout_width="154dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="63dp"
+        android:background="@color/Green"
+        android:fontFamily="@font/aaaaa"
         android:text="ok"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cb" />
+        style="@style/AppTheme.Button"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="456dp" />
 
     <Button
         android:id="@+id/cb"
-        android:layout_width="wrap_content"
+        android:layout_width="106dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
+        style="@style/AppTheme.Button"
+        android:background="@color/Red"
+        android:fontFamily="@font/aaaaa"
         android:text="cancel"
-        app:layout_constraintBaseline_toBaselineOf="@+id/okb"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteX="229dp"
+        tools:layout_editor_absoluteY="456dp" />
 </android.support.constraint.ConstraintLayout>

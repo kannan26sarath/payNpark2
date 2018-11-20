@@ -12,7 +12,9 @@
         android:layout_width="0dp"
 
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         card_view:cardBackgroundColor="#ffffff"
@@ -23,33 +25,94 @@
         card_view:cardUseCompatPadding="true">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="409dp"
+            android:layout_height="136dp">
 
             <TextView
-                android:id="@+id/txtid"
+                android:id="@+id/txtsearchparkcat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_alignTop="@+id/gifImageView3"
-                android:layout_marginStart="31dp"
-                android:text="FDSFSDFDSF"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="31dp" />
+                android:layout_marginStart="167dp"
+                android:layout_marginLeft="167dp"
+                android:layout_marginTop="1dp"
+                android:text="FDSFSDFDSF" />
+
+            <TextView
+                android:id="@+id/txtsearchparkvho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="32dp"
+                android:text="FDSFSDFDSF" />
+
+            <TextView
+                android:id="@+id/txtsearchparkid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="-6dp"
+                android:text="FDSFSDFDSF" />
+
+            <TextView
+                android:id="@+id/txtsearchparkmob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="64dp"
+                android:text="FDSFSDFDSF" />
+
+            <TextView
+                android:id="@+id/txtsearchsloteid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="168dp"
+                android:layout_marginLeft="168dp"
+                android:layout_marginTop="29dp"
+                android:text="FDSFSDFDSF" />
+
+            <TextView
+                android:id="@+id/txtsearchparkdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gifImageView3"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="171dp"
+                android:layout_marginLeft="171dp"
+                android:layout_marginTop="57dp"
+                android:text="FDSFSDFDSF" />
 
             <ImageView
                 android:id="@+id/gifImageView3"
                 android:layout_width="80dp"
 
                 android:layout_height="80dp"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="13dp"
-                android:layout_marginTop="51dp"
-                android:src="@drawable/green"
-                card_view:layout_constraintHorizontal_bias="1.0"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="13dp" />
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:src="@drawable/green"
+                card_view:layout_constraintHorizontal_bias="1.0" />
 
 
         </RelativeLayout>

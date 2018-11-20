@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kanna.paynpark.R;
@@ -35,7 +36,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         try {
 
             JSONObject jsonobject = searchData.getJSONObject(i);
-            viewHolder.txtid.setText(jsonobject.getString("park_vehno"));
+            viewHolder.txtid.setText(jsonobject.getString("park_id"));
+            viewHolder.txtmob.setText(jsonobject.getString("park_mob"));
+            viewHolder.txtcat.setText(jsonobject.getString("park_catgry"));
+            viewHolder.txtdate.setText(jsonobject.getString("park_date"));
+            viewHolder.txtslote.setText(jsonobject.getString("slote_id"));
+            viewHolder.txtvho.setText(jsonobject.getString("park_vehno"));
+            if(jsonobject.getString("park_catgry").equals("2 wheeler")){
+
+                viewHolder.imageView.setImageResource(R.drawable.bikelogo);
+            }
 
 
         } catch (JSONException e) {
@@ -50,11 +60,23 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtid;
-        //public TextView txtmob;
+        public TextView txtmob;
+        public TextView txtcat;
+        public TextView txtdate;
+        public TextView txtslote;
+        public TextView txtvho;
+        public ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtid=itemView.findViewById(R.id.txtid);
+            txtid=itemView.findViewById(R.id.txtsearchparkid);
+            txtmob=itemView.findViewById(R.id.txtsearchparkmob);
+            txtcat=itemView.findViewById(R.id.txtsearchparkcat);
+            txtdate=itemView.findViewById(R.id.txtsearchparkdate);
+            txtslote=itemView.findViewById(R.id.txtsearchsloteid);
+            txtvho=itemView.findViewById(R.id.txtsearchparkvho);
+            imageView=itemView.findViewById(R.id.gifImageView3);
+
 
         }
     }

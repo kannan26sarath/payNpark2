@@ -67,7 +67,7 @@ public class LocateActivity extends AppCompatActivity {
                     OkHttpClient client = new OkHttpClient();
 
                     HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/locateall.php").newBuilder();
-                    urlBuilder.addQueryParameter("park_vehno", txtVehno.getText().toString());
+                    urlBuilder.addQueryParameter("park_vehno", txtVehno.getText().toString().trim());
 
                     String url = urlBuilder.build().toString();
 
@@ -102,9 +102,17 @@ public class LocateActivity extends AppCompatActivity {
                                         arr[i]=jsonArray.optString(i);
                                     }*/
 
+                                    if(jsonArray.length() == 0){
+                                        Toast.makeText(getApplicationContext(),"Data is not available",Toast.LENGTH_SHORT ).show();
+
+                                    }
+                                    else{
+
+
+
                                             LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
                                             recyclerView.setAdapter(reAdapter);
-
+                                    }
 
                                         } catch (JSONException e) {
                                             Toast.makeText(getApplicationContext(),"Error in Getting Data",Toast.LENGTH_SHORT ).show();

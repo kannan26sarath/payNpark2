@@ -159,10 +159,12 @@ public class SearchActivity extends AppCompatActivity {
                                                     Toast.makeText(getApplicationContext(),"No one is parked in this date",Toast.LENGTH_SHORT).show();
 
                                                 }
+                                                else {
 
-                                                SearchAdapter searchAdapter=new SearchAdapter(jsonArray);
-                                                recyclerView.setAdapter(searchAdapter);
+                                                    SearchAdapter searchAdapter = new SearchAdapter(jsonArray);
+                                                    recyclerView.setAdapter(searchAdapter);
 
+                                                }
 
                                             } catch (JSONException e) {
                                                 Toast.makeText(getApplicationContext(),"Error in Getting Data",Toast.LENGTH_SHORT ).show();

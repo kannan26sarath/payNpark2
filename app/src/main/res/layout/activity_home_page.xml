@@ -5,15 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Green"
     tools:context="com.example.kanna.paynpark.AdminActivity"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:background="#fcfcfc"
     android:gravity="center"
     android:id="@+id/ll">
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="@color/Green"
         android:clipToPadding="false"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="-10dp"></LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="-20dp"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:background="@drawable/rounded_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Green"
+            android:fontFamily="@font/aaaaa"
+            android:textSize="35dp"
+            android:text="PayNpark"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:background="#fcfcfc"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -93,6 +122,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:background="#fcfcfc"
         android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
@@ -171,6 +201,7 @@
     <LinearLayout
         android:clipToPadding="false"
         android:gravity="center"
+        android:background="#fcfcfc"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

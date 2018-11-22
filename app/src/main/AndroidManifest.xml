@@ -35,31 +35,57 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ParkActivity"
+            android:label="Park"
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".SearchActivity"
+            android:label="Search"
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".LocateActivity"
+            android:label="Locate"
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".BillingActivity"
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".AdminActivity"
+            android:label="Admin"
             android:parentActivityName=".HomePage" />
         <activity
             android:name=".AboutActivity"
+            android:label="About"
             android:parentActivityName=".HomePage"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".SlotActivity" />
+        <activity
+            android:name=".SlotActivity"
+            android:label="Select Slote"
+            android:parentActivityName=".HomePage"
+            />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".ChangepassActivity" />
-        <activity android:name=".FareupActivity" />
-        <activity android:name=".RevenueActivity" />
-        <activity android:name=".NumberPlateReaderActivity" />
+        <activity
+            android:name=".ChangepassActivity"
+            android:label="Change Password"
+            android:parentActivityName=".AdminActivity"
+            />
+        <activity
+            android:name=".FareupActivity"
+            android:label="Fare Update"
+            android:parentActivityName=".AdminActivity"
+            />
+        <activity
+            android:name=".RevenueActivity"
+            android:label="Revenue"
+            android:parentActivityName=".AdminActivity"
+            />
+        <activity
+            android:name=".NumberPlateReaderActivity"
+            android:label="Number Platae Reader"
+            android:parentActivityName=".ParkActivity"
+
+            />
     </application>
 
 </manifest>

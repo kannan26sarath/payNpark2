@@ -124,6 +124,7 @@ public class ParkActivity extends AppCompatActivity {
                 String catgry = dropdown.getSelectedItem().toString();
                 String Sloteno = SloteNO;
                 Boolean isValidVehicle=ValidationClass.isValidVehicle(vid);
+                Boolean isPhonenumber=isValidMobile(mob);
                 if(!isValidVehicle){
 
                     etxtVid.setError("Invalid Vehicle Number ");
@@ -131,13 +132,12 @@ public class ParkActivity extends AppCompatActivity {
                 }
 
 
-                Boolean isPhonenumber=isValidMobile(mob);
-                if (!isPhonenumber) {
+
+               else  if (!isPhonenumber) {
                     etxtMobileNum.setError("Invalid Mobile Number ");
                 }
                 else {
 
-Toast.makeText(getApplicationContext(),""+android.util.Patterns.PHONE.matcher(mob).matches(),Toast.LENGTH_LONG).show();
                     try {
                         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                         StrictMode.setThreadPolicy(policy);

@@ -36,7 +36,16 @@ import okhttp3.Response;
 
 public class BillingActivity extends AppCompatActivity {
 
-    public String catgry,vhno,pdate,ptime,totalprktime,prkamnt,mob,pid,totoamnt="";
+    public String catgry;
+    public String vhno;
+    public String pdate;
+    public String ptime;
+    public String totalprktime;
+    public String prkamnt;
+    public String mob;
+    public String pid;
+    public String totoamnt="";
+    public int day=1;
     public  static final int PERMISSIONS_MULTIPLE_REQUEST = 0;
 
     @Override
@@ -101,13 +110,18 @@ public class BillingActivity extends AppCompatActivity {
                                             JSONArray jsonArray = new JSONArray(data);
                                             JSONObject jsonObject;
 
-                                            jsonObject = jsonArray.getJSONObject(0);
+                                            if(jsonArray.length()==0){
+                                                Toast.makeText(getApplicationContext(),"No data Found",Toast.LENGTH_LONG).show();
+                                            }
+                                            else {
 
-                                            catgry=jsonObject.getString("park_catgry");
-                                            vhno=jsonObject.getString("park_vehno");
-                                            pdate=jsonObject.getString("park_date");
-                                            totalprktime= String.valueOf(Integer.valueOf(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)")));
-                                            mob=jsonObject.getString("park_mob");
+                                                jsonObject = jsonArray.getJSONObject(0);
+
+                                                catgry = jsonObject.getString("park_catgry");
+                                                vhno = jsonObject.getString("park_vehno");
+                                                pdate = jsonObject.getString("park_date");
+                                                totalprktime = String.valueOf(Integer.valueOf(jsonObject.getString("TIMESTAMPDIFF(SECOND, `park_date`, CURRENT_TIMESTAMP)")));
+                                                mob = jsonObject.getString("park_mob");
 
 
 
@@ -120,11 +134,14 @@ public class BillingActivity extends AppCompatActivity {
 */
 
 
-                                            // txtPName.setText(jsonObject.getString("PName"));
-                                            //txtPrice.setText(jsonObject.getString("Price"));
-                                            String Catgry=jsonObject.getString("park_catgry");
-                                            getAmount(Catgry);
-                                           // Log.d("Amount",Amount[0]);
+                                                // txtPName.setText(jsonObject.getString("PName"));
+                                                //txtPrice.setText(jsonObject.getString("Price"));
+                                                String Catgry = jsonObject.getString("park_catgry");
+
+                                                getAmount(Catgry);
+                                                // Log.d("Amount",Amount[0]);
+
+                                            }
                                         } catch (JSONException e) {
                                             //txtInfo.setText(e.getMessage());
                                             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
@@ -199,17 +216,37 @@ public class BillingActivity extends AppCompatActivity {
                                             jsonObject = jsonArray.getJSONObject(0);
                                             String amnt ="";
                                             amnt = jsonObject.getString("amount");
+
+                                           // if(amnt.equals(0)){
+
+                                               //amnt="15";
+                                                //int day=Integer.valueOf(totalprktime)/86400;
+                                              //  totoamnt=String.valueOf(Integer.valueOf(amnt)*day);
+                                                //txttotalamout.setText(String.valueOf(totoamnt));
+                                           // }
+                                           // else {
+
+                                                txtcatgry.setText(catgry);
+                                                txtvno.setText(vhno);
+                                                txtpakdate.setText(pdate);
+                                                int hours=Integer.valueOf(totalprktime) /3600;
+                                                txtparktime.setText(hours+" hour");
+
+                                                day=Integer.valueOf(totalprktime)/86400;
+                                                if(day==0){
+                                                    day=1;
+
+                                                }
+                                                int valuesss=Integer.parseInt(amnt)*day;
+                                                totoamnt= String.valueOf(Integer.parseInt(amnt)*day);
+                                                txttotalamout.setText("RS. "+totoamnt);
+                                            //}
                                             // txtPName.setText(jsonObject.getString("PName"));
                                             //txtPrice.setText(jsonObject.getString("Price"));
 
-                                            txtcatgry.setText(catgry);
-                                            txtvno.setText(vhno);
-                                            txtpakdate.setText(pdate);
-                                            int hours=Integer.valueOf(totalprktime) /3600;
-                                            txtparktime.setText(hours+  " hour");
-                                            int day=Integer.valueOf(totalprktime)/86400;
-                                            totoamnt=String.valueOf(Integer.valueOf(amnt)*day);
-                                            txttotalamout.setText(String.valueOf(totoamnt));
+
+
+
 
 
                                            // txttotalamout.setText(amnt);
@@ -353,7 +390,7 @@ public class BillingActivity extends AppCompatActivity {
                             try {
                                 // txtInfo.setText(response.body().string());
                                 Toast.makeText(getApplicationContext(),response.body().string(),Toast.LENGTH_LONG).show();
-
+                                finish();
 
 
 

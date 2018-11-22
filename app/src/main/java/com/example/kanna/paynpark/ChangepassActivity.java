@@ -18,7 +18,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ChangepassActivity extends AppCompatActivity {
-
+    public String newpass = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +39,10 @@ public class ChangepassActivity extends AppCompatActivity {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            String newpass = null;
+
 
             OkHttpClient client = new OkHttpClient();
-            if(npass.getText().toString()==cpass.getText().toString()) {
+            if(npass.getText().toString().equals(cpass.getText().toString())) {
                 newpass = npass.getText().toString();
             }
 
@@ -79,7 +79,7 @@ public class ChangepassActivity extends AppCompatActivity {
                                 // txtInfo.setText(response.body().string());
                                 Toast.makeText(getApplicationContext(),response.body().string(),Toast.LENGTH_LONG).show();
 
-
+                                finish();
 
 
 

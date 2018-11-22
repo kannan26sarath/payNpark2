@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
 
@@ -34,6 +36,9 @@ public class HomePage extends AppCompatActivity {
         llbillinga=findViewById(R.id.llbill);
         lladmina=findViewById(R.id.lladmin);
         llappinfoa=findViewById(R.id.llapp);
+        TextView textViewhomepage=findViewById(R.id.homepageheading);
+
+       // textViewhomepage.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.bounce_interpolator));
         //Button b2 = (Button) findViewById(R.id.park);
         //Button b3 = (Button) findViewById(R.id.search);
         //Button b4 = (Button) findViewById(R.id.locate);

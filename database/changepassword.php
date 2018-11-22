@@ -13,11 +13,16 @@ $query2= "UPDATE `tbl_login` SET `password`='$npassword' where `username`='$user
 if(mysqli_query($conn, $query1))
 {
     
-	 if(mysqli_query($conn, $query2))
-{
-     echo "password changed successfully";
-	 
-}
+			 if(mysqli_query($conn, $query2))
+		{
+			 echo "password changed successfully";
+			 
+		}
+		else
+		{
+			 echo "password change failed";
+			 
+		}
 	 
 }
 else

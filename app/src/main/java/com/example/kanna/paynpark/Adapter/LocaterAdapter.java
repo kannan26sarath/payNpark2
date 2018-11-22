@@ -38,8 +38,12 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
         try {
             //JSONObject jsonobject= Locatedata.getJSONArray(i);
             JSONObject jsonobject = Locatedata.getJSONObject(i);
-            viewHolder.txtlocate.setText(jsonobject.getString("park_vehno"));
-           // viewHolder.txtmob.setText(jsonobject.getString("park_mob"));
+            viewHolder.txtLocateid.setText(jsonobject.getString("park_id"));
+            viewHolder.txtLocateVho.setText(jsonobject.getString("park_vehno"));
+            viewHolder.txtLocateCat.setText(jsonobject.getString("park_catgry"));
+            viewHolder.txtLocateDate.setText(jsonobject.getString("park_date"));
+            viewHolder.txtLocateMob.setText(jsonobject.getString("park_mob"));
+            viewHolder.txtLocateSloteId.setText(jsonobject.getString("slote_id"));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -55,14 +59,22 @@ public class LocaterAdapter extends RecyclerView.Adapter<LocaterAdapter.ViewHold
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtlocate;
-        //public TextView txtmob;
+        public TextView txtLocateid;
+        public TextView txtLocateVho;
+        public TextView txtLocateCat;
+        public TextView txtLocateDate;
+        public TextView txtLocateMob;
+        public TextView txtLocateSloteId;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtlocate=itemView.findViewById(R.id.txtLocateid);
-           // txtmob=itemView.findViewById(R.id.txtphno);
-
+            txtLocateid=itemView.findViewById(R.id.txtLocateid);
+            txtLocateVho=itemView.findViewById(R.id.txtLocatevho);
+            txtLocateCat=itemView.findViewById(R.id.txtLocatecat);
+            txtLocateDate=itemView.findViewById(R.id.txtLocateDate);
+            txtLocateMob=itemView.findViewById(R.id.txtLocatemob);
+            txtLocateSloteId=itemView.findViewById(R.id.txtLocateSloteid);
 
         }
     }

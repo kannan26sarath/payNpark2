@@ -339,7 +339,7 @@ public class SlotActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent=new Intent(getApplicationContext(),ParkActivity.class);
                intent.putExtra("SLOTE_NO",""+view.getId());
                startActivity(intent);
-
+               finish();
 
             }
         } else if ((int) view.getTag() == STATUS_BOOKED) {

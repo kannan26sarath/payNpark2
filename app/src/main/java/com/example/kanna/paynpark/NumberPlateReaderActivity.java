@@ -2,6 +2,8 @@ package com.example.kanna.paynpark;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -169,6 +171,11 @@ public class NumberPlateReaderActivity extends AppCompatActivity {
             }
 
             detectedTextView.setText(detectedText);
+
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("label", detectedText);
+            clipboard.setPrimaryClip(clip);
+
         }
         finally {
             textRecognizer.release();
@@ -223,5 +230,11 @@ public class NumberPlateReaderActivity extends AppCompatActivity {
                 super.onActivityResult(requestCode, resultCode, data);
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

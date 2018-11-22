@@ -1,5 +1,6 @@
 package com.example.kanna.paynpark;
 
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -208,5 +210,15 @@ public class ParkActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        EditText editText=findViewById(R.id.etxtVid);
+        //ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+
+        editText.setText("");
     }
 }

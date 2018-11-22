@@ -30,6 +30,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, int i) {
 

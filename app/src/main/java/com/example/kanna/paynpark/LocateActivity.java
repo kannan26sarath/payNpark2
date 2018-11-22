@@ -107,10 +107,7 @@ public class LocateActivity extends AppCompatActivity {
 
                                     }
                                     else{
-
-
-
-                                            LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
+                                             LocaterAdapter reAdapter=new LocaterAdapter(jsonArray);
                                             recyclerView.setAdapter(reAdapter);
                                     }
 
@@ -135,23 +132,6 @@ public class LocateActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-                /*
-
-                JSONArray jsonarray = new JSONArray(jsonStr);
-                for (int i = 0; i < jsonarray.length(); i++) {
-                    JSONObject jsonobject = jsonarray.getJSONObject(i);
-                    String name = jsonobject.getString("name");
-                    String url = jsonobject.getString("url");
-                }
-
-
-
-                 */
 
 
 

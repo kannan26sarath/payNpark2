@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.view.View;
@@ -29,6 +30,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import static android.net.sip.SipErrorCode.TIME_OUT;
+import static com.example.kanna.paynpark.ValidationClass.isValidMobile;
 
 public class ParkActivity extends AppCompatActivity {
     private static int TIME_OUTs = 100;
@@ -117,79 +119,92 @@ public class ParkActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String mob= String.valueOf(etxtMobileNum.getText());
-                String vid= String.valueOf(etxtVid.getText());
+                String mob = String.valueOf(etxtMobileNum.getText());
+                String vid = String.valueOf(etxtVid.getText());
                 String catgry = dropdown.getSelectedItem().toString();
-                String Sloteno=SloteNO;
+                String Sloteno = SloteNO;
+                Boolean isValidVehicle=ValidationClass.isValidVehicle(vid);
+                if(!isValidVehicle){
 
+                    etxtVid.setError("Invalid Vehicle Number ");
 
-
-                try {
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                    StrictMode.setThreadPolicy(policy);
-
-                    OkHttpClient client = new OkHttpClient();
-
-                    HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/create.php").newBuilder();
-                    urlBuilder.addQueryParameter("park_vehno",vid);
-                    urlBuilder.addQueryParameter("park_catgry",catgry);
-                    urlBuilder.addQueryParameter("park_mob",mob);
-                    urlBuilder.addQueryParameter("slote_id",Sloteno);
-
-                    String url = urlBuilder.build().toString();
-
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .build();
-
-                    client.newCall(request).enqueue(new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-
-                        }
-
-                        @Override
-                        public void onResponse(Call call, final Response response) throws IOException {
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    try {
-                                       // txtInfo.setText(response.body().string());
-                                        Toast.makeText(getApplicationContext(),response.body().string(),Toast.LENGTH_LONG).show();
-                                        etxtVid.setText("");
-                                        txtDate.setText("");
-                                        txttime.setText("");
-                                        etxtMobileNum.setText("");
-                                        txtDate.setText(finalFormattedDate.toString());
-                                        txttime.setText(times);
-
-
-                                        new Handler().postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                Intent i = new Intent(getApplicationContext(), HomePage.class);
-                                                startActivity(i);
-                                                finish();
-                                            }
-                                        }, TIME_OUTs);
-
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            });
-                        }
-
-                        ;
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
 
 
+                Boolean isPhonenumber=isValidMobile(mob);
+                if (!isPhonenumber) {
+                    etxtMobileNum.setError("Invalid Mobile Number ");
+                }
+                else {
+
+Toast.makeText(getApplicationContext(),""+android.util.Patterns.PHONE.matcher(mob).matches(),Toast.LENGTH_LONG).show();
+                    try {
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
+
+                        OkHttpClient client = new OkHttpClient();
+
+                        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://117.193.161.207/17lemca049/database/create.php").newBuilder();
+                        urlBuilder.addQueryParameter("park_vehno", vid);
+                        urlBuilder.addQueryParameter("park_catgry", catgry);
+                        urlBuilder.addQueryParameter("park_mob", mob);
+                        urlBuilder.addQueryParameter("slote_id", Sloteno);
+
+                        String url = urlBuilder.build().toString();
+
+                        Request request = new Request.Builder()
+                                .url(url)
+                                .build();
+
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+
+                            }
+
+                            @Override
+                            public void onResponse(Call call, final Response response) throws IOException {
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        try {
+                                            // txtInfo.setText(response.body().string());
+                                            Toast.makeText(getApplicationContext(), response.body().string(), Toast.LENGTH_LONG).show();
+                                            etxtVid.setText("");
+                                            txtDate.setText("");
+                                            txttime.setText("");
+                                            etxtMobileNum.setText("");
+                                            txtDate.setText(finalFormattedDate.toString());
+                                            txttime.setText(times);
+
+
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    Intent i = new Intent(getApplicationContext(), HomePage.class);
+                                                    startActivity(i);
+                                                    finish();
+                                                }
+                                            }, TIME_OUTs);
+
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                });
+                            }
+
+                            ;
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
             }
         });
 
